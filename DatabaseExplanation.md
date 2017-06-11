@@ -6,7 +6,6 @@ scattered in many DB tables, which update the global balance value of the
 <code>kfet</code> table thanks to MySQL triggers.
 
 ![](diagram.png)
-![](http://i.imgur.com/k4AlGMo.png)
 
 ## The DB tables:
 
