@@ -14,6 +14,9 @@ scattered in many DB tables, which update the global balance value of the
 
 The <code>kfet</code> table represents the last update of the balance value of the kfet.
 
+It contains a message, with field <code>reason</code>, that indicates what is the reason
+of the last update.
+
 ### purchases
 
 The <code>purchases</code> table represents the history of purchases. 
@@ -102,12 +105,19 @@ purchase.
 
 ### orders 
 
-The <code>orders</code> table contains the complete purchase history.
+The <code>orders</code> table contains the complete purchase history, at a datetime, by a customer
 
-A purchase can concern a (or some) product(s), or a menu, with a quantity.
+### order_product
 
-If the customer is recorded in the <code>customers</code> table, his ID is put, otherwise,
-the field <code>customer_id</code> remains NULL.
+The <code>order_product</code> table stores the detail of an order.
+
+An order concern one product, with a quantity. It can also concern multiple products, 
+but only if it's with a menu. In that case, the ID of the menu is stored, and the price
+is the price of the menu, multiplied by the quantity (only once per order, of course)
+
+The stock of the product is updated thanks to MySQL triggers.
+
+However, the kfet balance value is not updated with triggers.
 
 ### staff
 

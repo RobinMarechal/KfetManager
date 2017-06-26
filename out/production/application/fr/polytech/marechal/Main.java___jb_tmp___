@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -38,17 +39,19 @@ public class Main
                                             .with("subcategories", "menus")
                                             .getQuery();
 
-            //            System.out.println(query);
-            //
-            query.execute()
-                 .getJson();
-            //
-            //            System.out.println("-----------2-----------");
+//            System.out.println(query);
+//
+//            System.out.println(query.execute()
+//                                    .getJson());
+//
+//            System.out.println("-----------2-----------");
 
-            UrlParametersMap paramMap = new UrlParametersMap().setRelations("subcategories.products.orders.customer", "menus");
-            Category category = new CategoryFactory().find(2, paramMap);
+            UrlParametersMap paramMap = new UrlParametersMap().setOrderBy("name", OrderBy.DESC)
+                                                              .setLimit(5, 15);
 
-            System.out.println(category);
+            System.out.println(paramMap);
+
+//            ArrayList<Category> categories = new CategoryFactory().all(paramMap);
 
 
         }
@@ -194,7 +197,7 @@ public class Main
 
         try
         {
-            p = new ProductFactory().buildFromJson(json);
+            p = new ProductFactory().buildFromJsonOlf(json);
         }
         catch (ReflectiveOperationException e)
         {
@@ -225,7 +228,7 @@ public class Main
                                      .innerJoin("Table2", "id1", "=", "table_id")
                                      .groupBy("group")
                                      .having(Functions.COUNT, "f1", ">", 5)
-                                     .orderBy("name", fr.polytech.marechal.libs.database.query.builders.enums.OrderBy.ASC)
+                                     .orderBy("name", OrderBy.ASC)
                                      .limit(5)
                                      .offset(10)
                                      .buildQuery()
