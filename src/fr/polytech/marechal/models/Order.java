@@ -21,6 +21,7 @@ public class Order extends Model<Order>
 
     private ArrayList<Menu> menus = new ArrayList<>();
     private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
     private Customer customer;
 
     public int getId ()
@@ -91,6 +92,21 @@ public class Order extends Model<Order>
     public void addProduct(Product product)
     {
         this.products.add(product);
+    }
+
+    public ArrayList<OrderProduct> getOrderProducts ()
+    {
+        return orderProducts;
+    }
+
+    public void setOrderProducts (ArrayList<OrderProduct> orderProducts)
+    {
+        this.orderProducts = orderProducts;
+    }
+
+    public void addOrderProduct(OrderProduct orderProduct)
+    {
+        this.orderProducts.add(orderProduct);
     }
 
     public Customer getCustomer ()

@@ -20,6 +20,7 @@ public class Menu extends Model<Menu>
 
     private ArrayList<Category> categories = new ArrayList<>();
     private ArrayList<Order> orders = new ArrayList<>();
+    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
 
     public int getId ()
     {
@@ -89,6 +90,21 @@ public class Menu extends Model<Menu>
     public void addOrder(Order order)
     {
         this.orders.add(order);
+    }
+
+    public ArrayList<OrderProduct> getOrderProducts ()
+    {
+        return orderProducts;
+    }
+
+    public void setOrderProducts (ArrayList<OrderProduct> orderProducts)
+    {
+        this.orderProducts = orderProducts;
+    }
+
+    public void addOrderProduct(OrderProduct orderProduct)
+    {
+        this.orderProducts.add(orderProduct);
     }
 
     @Override

@@ -20,6 +20,7 @@ public class Event extends Model<Event>
 
     private ArrayList<EventAccessory> eventAccessories = new ArrayList<>();
     private ArrayList<EventProduct> eventProducts = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
 
     public int getId ()
     {
@@ -79,6 +80,21 @@ public class Event extends Model<Event>
     public void addEventProduct(EventProduct eventProduct)
     {
         this.eventProducts.add(eventProduct);
+    }
+
+    public ArrayList<Product> getProducts ()
+    {
+        return products;
+    }
+
+    public void setProducts (ArrayList<Product> products)
+    {
+        this.products = products;
+    }
+
+    public void addProduct(Product product)
+    {
+        this.products.add(product);
     }
 
     @Override

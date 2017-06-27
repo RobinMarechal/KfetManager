@@ -20,6 +20,7 @@ public class Restocking extends Model<Restocking>
     private String description;
 
     private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<ProductRestocking> productRestockings = new ArrayList<>();
 
     public ArrayList<Product> getProducts ()
     {
@@ -74,6 +75,21 @@ public class Restocking extends Model<Restocking>
     public void setDescription (String description)
     {
         this.description = description;
+    }
+
+    public ArrayList<ProductRestocking> getProductRestockings ()
+    {
+        return productRestockings ;
+    }
+
+    public void setProductRestockings (ArrayList<ProductRestocking> productRestockings)
+    {
+        this.productRestockings = productRestockings;
+    }
+
+    public void addProductRestocking (ProductRestocking productRestocking)
+    {
+        this.productRestockings.add(productRestocking);
     }
 
     @Override

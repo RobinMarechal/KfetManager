@@ -22,8 +22,11 @@ public class Product extends Model<Product>
 
     private Subcategory subcategory;
     private Category category;
-    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+    private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<Restocking> restockings = new ArrayList<>();
+    private ArrayList<ProductRestocking> productRestockings = new ArrayList<>();
+    private ArrayList<Event> events = new ArrayList<>();
+    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
 
     public ArrayList<Restocking> getRestockings ()
     {
@@ -38,6 +41,21 @@ public class Product extends Model<Product>
     public void addRestocking (Restocking restocking)
     {
         this.restockings.add(restocking);
+    }
+
+    public ArrayList<ProductRestocking> getProductRestockings ()
+    {
+        return productRestockings ;
+    }
+
+    public void setProductRestockings (ArrayList<ProductRestocking> productRestockings)
+    {
+        this.productRestockings = productRestockings;
+    }
+
+    public void addProductRestocking (ProductRestocking productRestocking)
+    {
+        this.productRestockings.add(productRestocking);
     }
 
     public int getId ()
@@ -120,6 +138,21 @@ public class Product extends Model<Product>
         this.category = category;
     }
 
+    public ArrayList<Order> getOrders ()
+    {
+        return orders;
+    }
+
+    public void setOrders (ArrayList<Order> orders)
+    {
+        this.orders = orders;
+    }
+
+    public void addOrder (Order order)
+    {
+        this.orders.add(order);
+    }
+
     public ArrayList<OrderProduct> getOrderProducts ()
     {
         return orderProducts;
@@ -130,9 +163,24 @@ public class Product extends Model<Product>
         this.orderProducts = orderProducts;
     }
 
-    public void addOrderProduct (OrderProduct orderProduct)
+    public void addOrderProduct(OrderProduct orderProduct)
     {
         this.orderProducts.add(orderProduct);
+    }
+
+    public ArrayList<Event> getEvents ()
+    {
+        return events;
+    }
+
+    public void setEvents (ArrayList<Event> events)
+    {
+        this.events = events;
+    }
+
+    public void addEvent (Event event)
+    {
+        this.events.add(event);
     }
 
     @Override
@@ -170,6 +218,6 @@ public class Product extends Model<Product>
     {
         return "Product{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", " +
                 "quantity=" + quantity + ", subcategoryId=" + subcategoryId + ", subcategory=" + subcategory + ", category=" + category + ", "
-                + "orderProducts=" + orderProducts + '}';
+                + "orderProducts=" + orders + '}';
     }
 }
