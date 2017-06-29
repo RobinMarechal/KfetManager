@@ -1,6 +1,6 @@
 package fr.polytech.marechal.models.factories;
 
-import fr.polytech.marechal.libs.mvc.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelFactory;
 import fr.polytech.marechal.models.ProductRestocking;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +13,6 @@ import java.util.HashMap;
  */
 public class Subcategory extends Model<Subcategory>
 {
-    private int id;
     private int categoryId;
     private String name;
     private double price;
@@ -21,15 +20,6 @@ public class Subcategory extends Model<Subcategory>
     private Category category;
     private ArrayList<Product> products = new ArrayList<>();
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public int getCategoryId ()
     {
@@ -119,7 +109,7 @@ public class Subcategory extends Model<Subcategory>
     @Override
     public String toString ()
     {
-        return "Subcategory{" + "id=" + id + ", categoryId=" + categoryId + ", name='" + name + '\'' + ", price=" + price + ", category="
+        return "Subcategory{" + "id=" + getId() + ", categoryId=" + categoryId + ", name='" + name + '\'' + ", price=" + price + ", category="
                 + category + ", products=" + products + '}';
     }
 }

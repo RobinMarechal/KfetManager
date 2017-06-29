@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -14,7 +14,6 @@ import java.util.HashMap;
  */
 public class Event extends Model<Event>
 {
-    private int id;
     private LocalDate date;
     private String description;
 
@@ -22,15 +21,6 @@ public class Event extends Model<Event>
     private ArrayList<EventProduct> eventProducts = new ArrayList<>();
     private ArrayList<Product> products = new ArrayList<>();
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public LocalDate getDate ()
     {
@@ -130,7 +120,7 @@ public class Event extends Model<Event>
     @Override
     public String toString ()
     {
-        return "Event{" + "id=" + id + ", date=" + date + ", description='" + description + '\'' + ", eventAccessories=" +
+        return "Event{" + "id=" + getId() + ", date=" + date + ", description='" + description + '\'' + ", eventAccessories=" +
                 eventAccessories + ", eventProducts=" + eventProducts + '}';
     }
 }

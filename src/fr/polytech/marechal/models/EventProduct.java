@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -12,7 +12,6 @@ import java.util.HashMap;
  */
 public class EventProduct extends Model<EventProduct>
 {
-    private int id;
     private int productId;
     private int eventId;
     private double cost;
@@ -23,16 +22,6 @@ public class EventProduct extends Model<EventProduct>
 
     private Event event;
     private Product product;
-
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public int getProductId ()
     {
@@ -157,7 +146,7 @@ public class EventProduct extends Model<EventProduct>
     @Override
     public String toString ()
     {
-        return "EventProduct{" + "id=" + id + ", productId=" + productId + ", eventId=" + eventId + ", cost=" + cost + ", price=" + price
+        return "EventProduct{" + "id=" + getId() + ", productId=" + productId + ", eventId=" + eventId + ", cost=" + cost + ", price=" + price
                 + ", quantitySold=" + quantitySold + ", quantityBought=" + quantityBought + ", name='" + name + '\'' + ", event=" + event
                 + ", product=" + product + '}';
     }

@@ -1,7 +1,8 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.RelationWithPivot;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,23 +14,12 @@ import java.util.HashMap;
  */
 public class Category extends Model<Category>
 {
-    private int id;
     private String name;
 
     private ArrayList<Subcategory> subcategories = new ArrayList<>();
-    private ArrayList<Menu> menus = new ArrayList<>();
+    private RelationWithPivot<Menu, CategoryMenu> menus = new RelationWithPivot<>();
     private ArrayList<Product> products = new ArrayList<>();
 
-
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public String getName ()
     {
@@ -51,24 +41,24 @@ public class Category extends Model<Category>
         this.subcategories = subcategories;
     }
 
-    public void addSubcategory(Subcategory subcategory)
+    public void addSubcategory (Subcategory subcategory)
     {
         this.subcategories.add(subcategory);
     }
 
-    public ArrayList<Menu> getMenus ()
+    public RelationWithPivot<Menu, CategoryMenu> getMenus ()
     {
         return menus;
     }
 
-    public void setMenus (ArrayList<Menu> menus)
+    public void setMenus (RelationWithPivot<Menu, CategoryMenu> menus)
     {
         this.menus = menus;
     }
 
-    public void addMenu(Menu menu)
+    public void addMenu (Menu menu, CategoryMenu pivot)
     {
-        this.menus.add(menu);
+        this.menus.put(menu, pivot);
     }
 
     public ArrayList<Product> getProducts ()
@@ -81,7 +71,7 @@ public class Category extends Model<Category>
         this.products = products;
     }
 
-    public void addProduct(Product product)
+    public void addProduct (Product product)
     {
         this.products.add(product);
     }
@@ -119,7 +109,7 @@ public class Category extends Model<Category>
     @Override
     public String toString ()
     {
-        return "Category{" + "id=" + id + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", " +
+        return "Category{" + "id=" + getId() + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", " +
                 "products=" + products + '}';
     }
 }

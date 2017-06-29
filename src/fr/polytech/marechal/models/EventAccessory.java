@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -12,23 +12,12 @@ import java.util.HashMap;
  */
 public class EventAccessory extends Model<EventAccessory>
 {
-    private int id;
     private int eventId;
     private String name;
     private double cost;
     private int quantity;
 
     private Event event;
-
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public int getEventId ()
     {
@@ -113,7 +102,7 @@ public class EventAccessory extends Model<EventAccessory>
     @Override
     public String toString ()
     {
-        return "EventAccessory{" + "id=" + id + ", eventId=" + eventId + ", name='" + name + '\'' + ", cost=" + cost + ", quantity=" +
+        return "EventAccessory{" + "id=" + getId() + ", eventId=" + eventId + ", name='" + name + '\'' + ", cost=" + cost + ", quantity=" +
                 quantity + ", event=" + event + '}';
     }
 }

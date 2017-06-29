@@ -1,7 +1,8 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.RelationWithPivot;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,24 +14,14 @@ import java.util.HashMap;
  */
 public class Menu extends Model<Menu>
 {
-    private int id;
     private String name;
     private String description;
     private double price;
 
-    private ArrayList<Category> categories = new ArrayList<>();
+    private RelationWithPivot<Category, CategoryMenu> categories = new RelationWithPivot<>();
     private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public String getName ()
     {
@@ -62,19 +53,19 @@ public class Menu extends Model<Menu>
         this.price = price;
     }
 
-    public ArrayList<Category> getCategories ()
+    public RelationWithPivot<Category, CategoryMenu> getCategories ()
     {
         return categories;
     }
 
-    public void setCategories (ArrayList<Category> categories)
+    public void setCategories (RelationWithPivot<Category, CategoryMenu> categories)
     {
         this.categories = categories;
     }
 
-    public void addCategory(Category category)
+    public void addCategory(Category category, CategoryMenu pivot)
     {
-        this.categories.add(category);
+        this.categories.put(category, pivot);
     }
 
     public ArrayList<Order> getOrders ()
@@ -140,7 +131,7 @@ public class Menu extends Model<Menu>
     @Override
     public String toString ()
     {
-        return "Menu{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", " +
+        return "Menu{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", " +
                 "categories=" + categories + ", orders=" + orders + '}';
     }
 }

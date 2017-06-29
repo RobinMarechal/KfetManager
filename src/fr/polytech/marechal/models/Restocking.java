@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -14,7 +14,6 @@ import java.util.HashMap;
  */
 public class Restocking extends Model<Restocking>
 {
-    private int id;
     private LocalDate date;
     private double cost;
     private String description;
@@ -37,15 +36,6 @@ public class Restocking extends Model<Restocking>
         this.products.add(product);
     }
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public LocalDate getDate ()
     {
@@ -125,6 +115,6 @@ public class Restocking extends Model<Restocking>
     @Override
     public String toString ()
     {
-        return "Restocking{" + "id=" + id + ", date=" + date + ", cost=" + cost + ", description='" + description + '\'' + '}';
+        return "Restocking{" + "id=" + getId() + ", date=" + date + ", cost=" + cost + ", description='" + description + '\'' + '}';
     }
 }

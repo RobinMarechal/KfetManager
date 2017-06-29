@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -13,23 +13,12 @@ import java.util.HashMap;
  */
 public class Kfet extends Model<Kfet>
 {
-    private int id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private double balance;
     private int reasonId;
     private String reasonTable;
     private String reasonType;
-
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public LocalDateTime getCreatedAt ()
     {
@@ -124,7 +113,7 @@ public class Kfet extends Model<Kfet>
     @Override
     public String toString ()
     {
-        return "Kfet{" + "id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", balance=" + balance + ", reasonId=" +
+        return "Kfet{" + "id=" + getId() + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", balance=" + balance + ", reasonId=" +
                 reasonId + ", reasonTable='" + reasonTable + '\'' + ", reasonType='" + reasonType + '\'' + '}';
     }
 }

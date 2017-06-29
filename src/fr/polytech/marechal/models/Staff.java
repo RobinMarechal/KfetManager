@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -12,7 +12,6 @@ import java.util.HashMap;
  */
 public class Staff extends Model<Staff>
 {
-    private int id;
     private String firstname;
     private String lastname;
     private String email;
@@ -20,15 +19,6 @@ public class Staff extends Model<Staff>
 
     private Customer customer;
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public String getFirstname ()
     {
@@ -113,7 +103,7 @@ public class Staff extends Model<Staff>
     @Override
     public String toString ()
     {
-        return "Staff{" + "id=" + id + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\''
+        return "Staff{" + "id=" + getId() + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\''
                 + ", role='" + role + '\'' + ", customer=" + customer + '}';
     }
 }

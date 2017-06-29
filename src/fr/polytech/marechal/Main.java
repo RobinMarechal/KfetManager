@@ -45,22 +45,15 @@ public class Main
             //
             //            System.out.println("-----------2-----------");
 
-            UrlParametersMap paramMap = new UrlParametersMap().setRelations("subcategories.products.orders.customer", "menus");
-            Category category = new CategoryFactory().find(2, paramMap);
+            UrlParametersMap paramMap = new UrlParametersMap().setRelations("menus");
+
+            Category category = new CategoryFactory().find(3, paramMap);
 
             System.out.println(category);
 
-
+            category.getMenus().pivotSet().forEach(categoryMenu -> System.out.println(categoryMenu));
         }
-        catch (ReflectiveOperationException e)
-        {
-            e.printStackTrace();
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }

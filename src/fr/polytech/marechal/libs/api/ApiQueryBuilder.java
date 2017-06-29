@@ -1,6 +1,6 @@
 package fr.polytech.marechal.libs.api;
 
-import fr.polytech.marechal.libs.mvc.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;

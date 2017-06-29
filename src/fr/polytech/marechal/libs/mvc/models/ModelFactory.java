@@ -1,4 +1,4 @@
-package fr.polytech.marechal.libs.mvc;
+package fr.polytech.marechal.libs.mvc.models;
 
 import fr.polytech.marechal.libs.Helpers;
 import fr.polytech.marechal.libs.api.ApiQuery;
@@ -21,9 +21,9 @@ import java.util.ArrayList;
  * @author Robin
  * @date 15/06/2017
  */
-public abstract class ModelFactory<T>
+public abstract class ModelFactory<T extends Model>
 {
-    public T find  (int id, UrlParametersMap parametersMap)
+    public T find (int id, UrlParametersMap parametersMap)
     {
         try
         {
@@ -104,8 +104,14 @@ public abstract class ModelFactory<T>
             String key   = item.toString();
             Object value = json.get(key);
 
-            if (value == null)
+            if (value == null || key.equals("pivot"))
             {
+                continue;
+            }
+
+            if(key.equals("id"))
+            {
+                instance.setId(Integer.valueOf(value.toString()).intValue());
                 continue;
             }
 
@@ -201,8 +207,7 @@ public abstract class ModelFactory<T>
             {
                 ParameterizedType listType = (ParameterizedType) field.getGenericType();
 
-                String typeName = listType.getActualTypeArguments()[0].getTypeName();
-
+                String typeName         = listType.getActualTypeArguments()[0].getTypeName();
                 String factoryClassName = Helpers.getFactoryOfModel(typeName);
 
                 Class<?> modelClazz   = Class.forName(typeName);
@@ -210,9 +215,8 @@ public abstract class ModelFactory<T>
 
                 ModelFactory factory = (ModelFactory) factoryClazz.newInstance();
 
-                Method factoryBuildMethod = factoryClazz.getMethod("buildFromJson", JSONObject.class);
-                String addMethodName      = Helpers.getAddingMethodName(camelCaseKey);
-                Method addMethod          = clazz.getDeclaredMethod(addMethodName, modelClazz);
+                String addMethodName = Helpers.getAddingMethodName(camelCaseKey);
+                Method addMethod     = clazz.getDeclaredMethod(addMethodName, modelClazz);
 
                 JSONArray array = (JSONArray) value;
 
@@ -220,9 +224,44 @@ public abstract class ModelFactory<T>
                 {
                     JSONObject vJson = ((JSONObject) v);
 
-                    Object result = factoryBuildMethod.invoke(factory, vJson);
+                    Object result = factory.buildFromJson(vJson);
 
                     addMethod.invoke(instance, modelClazz.cast(result));
+                }
+            }
+            else if (fieldClassName.equals(RelationWithPivot.class.getName()))
+            {
+                ParameterizedType listType = (ParameterizedType) field.getGenericType();
+
+                String modelTypeName = listType.getActualTypeArguments()[0].getTypeName();
+                String pivotTypeName = listType.getActualTypeArguments()[1].getTypeName();
+
+                String modelFactoryClassName = Helpers.getFactoryOfModel(modelTypeName);
+                String pivotFactoryClassName = Helpers.getFactoryOfModel(pivotTypeName);
+
+                Class<?> modelClazz        = Class.forName(modelTypeName);
+                Class<?> pivotClazz        = Class.forName(pivotTypeName);
+
+                Class<?> modelFactoryClazz = Class.forName(modelFactoryClassName);
+                Class<?> pivotFactoryClazz = Class.forName(pivotFactoryClassName);
+
+                ModelFactory modelFactory = (ModelFactory) modelFactoryClazz.newInstance();
+                ModelFactory pivotFactory = (ModelFactory) pivotFactoryClazz.newInstance();
+
+                String addMethodName = Helpers.getAddingMethodName(camelCaseKey);
+                Method addMethod     = clazz.getDeclaredMethod(addMethodName, modelClazz, pivotClazz);
+
+                JSONArray array = (JSONArray) value;
+
+                for (Object v : array)
+                {
+                    JSONObject modelJson = ((JSONObject) v);
+                    Object model = modelFactory.buildFromJson(modelJson);
+
+                    JSONObject pivotJson = (JSONObject) modelJson.get("pivot");
+                    Object pivot = pivotJson == null ? null : pivotFactory.buildFromJson(pivotJson);
+
+                    addMethod.invoke(instance, modelClazz.cast(model), pivotClazz.cast(pivot));
                 }
             }
             else // object

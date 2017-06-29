@@ -1,7 +1,8 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.RelationWithPivot;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -14,25 +15,15 @@ import java.util.HashMap;
  */
 public class Order extends Model<Order>
 {
-    private int id;
     private int customerId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     private ArrayList<Menu> menus = new ArrayList<>();
-    private ArrayList<Product> products = new ArrayList<>();
+    private RelationWithPivot<Product, OrderProduct> products = new RelationWithPivot<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
     private Customer customer;
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public int getCustomerId ()
     {
@@ -79,19 +70,19 @@ public class Order extends Model<Order>
         this.menus.add(menu);
     }
 
-    public ArrayList<Product> getProducts ()
+    public RelationWithPivot<Product, OrderProduct> getProducts ()
     {
         return products;
     }
 
-    public void setProducts (ArrayList<Product> products)
+    public void setProducts (RelationWithPivot<Product, OrderProduct> products)
     {
         this.products = products;
     }
 
-    public void addProduct(Product product)
+    public void addProduct(Product product, OrderProduct pivot)
     {
-        this.products.add(product);
+        this.products.put(product, pivot);
     }
 
     public ArrayList<OrderProduct> getOrderProducts ()
@@ -152,7 +143,7 @@ public class Order extends Model<Order>
     @Override
     public String toString ()
     {
-        return "Order{" + "id=" + id + ", customerId=" + customerId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", " +
+        return "Order{" + "id=" + getId() + ", customerId=" + customerId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", " +
                 "menus=" + menus + ", products=" + products + ", customer=" + customer + '}';
     }
 }

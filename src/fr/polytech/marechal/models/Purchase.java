@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -13,21 +13,11 @@ import java.util.HashMap;
  */
 public class Purchase extends Model<Purchase>
 {
-    private int id;
     private double cost;
     private int quantity;
     private LocalDate date;
     private String description;
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public double getCost ()
     {
@@ -102,7 +92,7 @@ public class Purchase extends Model<Purchase>
     @Override
     public String toString ()
     {
-        return "Purchase{" + "id=" + id + ", cost=" + cost + ", quantity=" + quantity + ", date=" + date + ", description='" +
+        return "Purchase{" + "id=" + getId() + ", cost=" + cost + ", quantity=" + quantity + ", date=" + date + ", description='" +
                 description + '\'' + '}';
     }
 }

@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models.factories;
 
 import configs.ApiConfig;
-import fr.polytech.marechal.libs.mvc.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelFactory;
 import fr.polytech.marechal.models.Purchase;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -12,7 +12,6 @@ import java.util.HashMap;
  */
 public class ProductRestocking extends Model<ProductRestocking>
 {
-    private int id;
     private int productId;
     private int quantity;
     private int restockingId;
@@ -20,15 +19,6 @@ public class ProductRestocking extends Model<ProductRestocking>
     private Product product;
     private Restocking restocking;
 
-    public int getId ()
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
-    }
 
     public int getProductId ()
     {
@@ -113,7 +103,7 @@ public class ProductRestocking extends Model<ProductRestocking>
     @Override
     public String toString ()
     {
-        return "ProductRestocking{" + "id=" + id + ", productId=" + productId + ", quantity=" + quantity + ", restockingId=" +
+        return "ProductRestocking{" + "id=" + getId() + ", productId=" + productId + ", quantity=" + quantity + ", restockingId=" +
                 restockingId + ", product=" + product + ", restocking=" + restocking + '}';
     }
 }

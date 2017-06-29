@@ -1,4 +1,4 @@
-package fr.polytech.marechal.libs.mvc.exceptions;
+package fr.polytech.marechal.libs.mvc.models.exceptions;
 
 import org.jetbrains.annotations.NonNls;
 

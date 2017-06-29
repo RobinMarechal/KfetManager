@@ -1,7 +1,7 @@
 package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.mvc.Model;
+import fr.polytech.marechal.libs.mvc.models.Model;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -12,12 +12,11 @@ import java.util.HashMap;
  */
 public class CategoryMenu extends Model<CategoryMenu>
 {
-    private int id;
     private int menuId;
     private int categoryId;
 
     private Menu menu;
-    private Category Category;
+    private Category category;
 
     public Menu getMenu ()
     {
@@ -31,23 +30,12 @@ public class CategoryMenu extends Model<CategoryMenu>
 
     public fr.polytech.marechal.models.Category getCategory ()
     {
-        return Category;
+        return category;
     }
 
     public void setCategory (fr.polytech.marechal.models.Category category)
     {
-        Category = category;
-    }
-
-    public int getId ()
-
-    {
-        return id;
-    }
-
-    public void setId (int id)
-    {
-        this.id = id;
+        this.category = category;
     }
 
     public int getMenuId ()
@@ -104,7 +92,6 @@ public class CategoryMenu extends Model<CategoryMenu>
     @Override
     public String toString ()
     {
-        return "CategoryMenu{" + "id=" + id + ", menuId=" + menuId + ", categoryId=" + categoryId + ", menu=" + menu + ", Category=" +
-                Category + '}';
+        return "CategoryMenu{" + "id=" + getId() + ", menuId=" + menuId + ", categoryId=" + categoryId + ", menu=" + menu + ", category=" + category + '}';
     }
 }
