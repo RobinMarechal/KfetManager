@@ -9,7 +9,7 @@ import java.util.*;
  * @author Robin
  * @date 29/06/2017
  */
-public class RelationWithPivot<M extends Model<M>, P extends Model<P>> implements Map<M, P>
+public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map<M, P>
 {
 
     private List<Node<M, P>> pairs = new ArrayList<>();
@@ -356,14 +356,14 @@ public class RelationWithPivot<M extends Model<M>, P extends Model<P>> implement
         return new TreeSet<>(pairs);
     }
 
-    public Set<M> modelSet ()
+    public List<M> getModelList ()
     {
-        return keySet();
+        return new ArrayList<>(keySet());
     }
 
-    public Collection<P> pivotSet ()
+    public List<P> getPivotList ()
     {
-        return values();
+        return new ArrayList<>(values());
     }
 
     public Node<M, P> get (int index)

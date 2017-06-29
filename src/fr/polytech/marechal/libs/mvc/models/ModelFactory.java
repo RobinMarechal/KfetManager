@@ -229,7 +229,7 @@ public abstract class ModelFactory<T extends Model>
                     addMethod.invoke(instance, modelClazz.cast(result));
                 }
             }
-            else if (fieldClassName.equals(RelationWithPivot.class.getName()))
+            else if (fieldClassName.equals(RelationsMap.class.getName()))
             {
                 ParameterizedType listType = (ParameterizedType) field.getGenericType();
 

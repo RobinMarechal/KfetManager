@@ -2,7 +2,7 @@ package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
 import fr.polytech.marechal.libs.mvc.models.Model;
-import fr.polytech.marechal.libs.mvc.models.RelationWithPivot;
+import fr.polytech.marechal.libs.mvc.models.RelationsMap;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -20,7 +20,7 @@ public class Order extends Model<Order>
     private LocalDateTime updatedAt;
 
     private ArrayList<Menu> menus = new ArrayList<>();
-    private RelationWithPivot<Product, OrderProduct> products = new RelationWithPivot<>();
+    private RelationsMap<Product, OrderProduct> products = new RelationsMap<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
     private Customer customer;
 
@@ -70,12 +70,12 @@ public class Order extends Model<Order>
         this.menus.add(menu);
     }
 
-    public RelationWithPivot<Product, OrderProduct> getProducts ()
+    public RelationsMap<Product, OrderProduct> getProducts ()
     {
         return products;
     }
 
-    public void setProducts (RelationWithPivot<Product, OrderProduct> products)
+    public void setProducts (RelationsMap<Product, OrderProduct> products)
     {
         this.products = products;
     }

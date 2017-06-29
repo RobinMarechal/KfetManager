@@ -2,7 +2,7 @@ package fr.polytech.marechal.models;
 
 import fr.polytech.marechal.libs.database.query.results.QueryResult;
 import fr.polytech.marechal.libs.mvc.models.Model;
-import fr.polytech.marechal.libs.mvc.models.RelationWithPivot;
+import fr.polytech.marechal.libs.mvc.models.RelationsMap;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Menu extends Model<Menu>
     private String description;
     private double price;
 
-    private RelationWithPivot<Category, CategoryMenu> categories = new RelationWithPivot<>();
+    private RelationsMap<Category, CategoryMenu> categories = new RelationsMap<>();
     private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
 
@@ -53,12 +53,12 @@ public class Menu extends Model<Menu>
         this.price = price;
     }
 
-    public RelationWithPivot<Category, CategoryMenu> getCategories ()
+    public RelationsMap<Category, CategoryMenu> getCategories ()
     {
         return categories;
     }
 
-    public void setCategories (RelationWithPivot<Category, CategoryMenu> categories)
+    public void setCategories (RelationsMap<Category, CategoryMenu> categories)
     {
         this.categories = categories;
     }

@@ -51,7 +51,7 @@ public class Main
 
             System.out.println(category);
 
-            category.getMenus().pivotSet().forEach(categoryMenu -> System.out.println(categoryMenu));
+            category.getMenus().getPivotList().forEach(categoryMenu -> System.out.println(categoryMenu));
         }
         catch (Exception e)
         {
