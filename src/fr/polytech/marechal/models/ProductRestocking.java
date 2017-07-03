@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
+import fr.polytech.marechal.models.managers.ProductRestockingsManager;
+import fr.polytech.marechal.models.managers.RestockingsManager;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -18,6 +21,28 @@ public class ProductRestocking extends Model<ProductRestocking>
 
     private Product product;
     private Restocking restocking;
+
+    public ProductRestocking loadProduct ()
+    {
+        return loadProduct(new UrlParametersMap());
+    }
+
+    public ProductRestocking loadProduct (UrlParametersMap parameters)
+    {
+        product = new ProductsManager().find(productId, parameters);
+        return this;
+    }
+
+    public ProductRestocking loadRestocking ()
+    {
+        return loadRestocking(new UrlParametersMap());
+    }
+
+    public ProductRestocking loadRestocking (UrlParametersMap parameters)
+    {
+        restocking = new RestockingsManager().find(restockingId, parameters);
+        return this;
+    }
 
 
     public int getProductId ()
@@ -73,31 +98,50 @@ public class ProductRestocking extends Model<ProductRestocking>
     @Override
     protected void recopy (ProductRestocking obj)
     {
-
+        this.productId = obj.productId;
+        this.restockingId = obj.restockingId;
+        this.product = obj.product;
+        this.restocking = obj.restocking;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public ProductRestocking loadAll ()
+    {
+        ProductRestocking pr = new ProductRestockingsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(pr);
+        return this;
+    }
+
+    @Override
+    public ProductRestocking loadAll (UrlParametersMap parameters)
+    {
+        loadRestocking(parameters);
+        loadProduct(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<ProductRestocking> getManagerInstance ()
+    {
+        return new ProductRestockingsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

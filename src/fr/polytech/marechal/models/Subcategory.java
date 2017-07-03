@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.CategoriesManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
+import fr.polytech.marechal.models.managers.SubcategoriesManager;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,6 +23,32 @@ public class Subcategory extends Model<Subcategory>
     private Category category;
     private ArrayList<Product> products = new ArrayList<>();
 
+    public Subcategory loadCategory ()
+    {
+        return loadCategory(new UrlParametersMap());
+    }
+
+    public Subcategory loadCategory (UrlParametersMap parameters)
+    {
+        ArrayList<Category> list = new CategoriesManager().ofUrl("subcategories/" + getId() +"/category", parameters);
+        if(!list.isEmpty())
+        {
+            category = list.get(0);
+        }
+
+        return this;
+    }
+
+    public Subcategory loadProducts ()
+    {
+        return loadProducts(new UrlParametersMap());
+    }
+
+    public Subcategory loadProducts (UrlParametersMap parameters)
+    {
+        products = new ProductsManager().ofUrl("subcategories/" + getId() +"/products", parameters);
+        return this;
+    }
 
     public int getCategoryId ()
     {
@@ -79,25 +108,17 @@ public class Subcategory extends Model<Subcategory>
     @Override
     protected void recopy (Subcategory obj)
     {
-
+        this.categoryId = obj.categoryId;
+        this.name = obj.name;
+        this.price = obj.price;
+        this.products = obj.products;
+        this.category = obj.category;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -107,9 +128,37 @@ public class Subcategory extends Model<Subcategory>
     }
 
     @Override
+    public Subcategory loadAll ()
+    {
+        Subcategory tmp = new SubcategoriesManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Subcategory loadAll (UrlParametersMap parameters)
+    {
+        loadCategory(parameters);
+        loadProducts(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Subcategory> getManagerInstance ()
+    {
+        return new SubcategoriesManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Subcategory{" + "id=" + getId() + ", categoryId=" + categoryId + ", name='" + name + '\'' + ", price=" + price + ", category="
-                + category + ", products=" + products + '}';
+        return "Subcategory{" + "id=" + getId() + ", categoryId=" + categoryId + ", name='" + name + '\'' + ", price=" + price + ", " +
+                "category=" + category + ", products=" + products + '}';
     }
 }

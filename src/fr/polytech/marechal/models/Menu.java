@@ -1,10 +1,13 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
+import fr.polytech.marechal.models.managers.CategoriesManager;
+import fr.polytech.marechal.models.managers.MenusManager;
+import fr.polytech.marechal.models.managers.OrdersManager;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,7 +23,30 @@ public class Menu extends Model<Menu>
 
     private RelationsMap<Category, CategoryMenu> categories = new RelationsMap<>();
     private ArrayList<Order> orders = new ArrayList<>();
-    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+
+    public Menu loadCategories ()
+    {
+        return loadCategories(new UrlParametersMap());
+    }
+
+    public Menu loadCategories (UrlParametersMap parameters)
+    {
+        ArrayList<Category> categoryList = new CategoriesManager().ofUrl("menus/" + getId() + "/categories", parameters);
+        this.categories = new RelationsMap<>();
+        categories.addModels(categoryList);
+        return this;
+    }
+
+    public Menu loadOrders ()
+    {
+        return loadOrders(new UrlParametersMap());
+    }
+
+    public Menu loadOrders (UrlParametersMap parameters)
+    {
+        orders = new OrdersManager().ofUrl("menus/" + getId() + "/orders", parameters);
+        return this;
+    }
 
 
     public String getName ()
@@ -63,7 +89,7 @@ public class Menu extends Model<Menu>
         this.categories = categories;
     }
 
-    public void addCategory(Category category, CategoryMenu pivot)
+    public void addCategory (Category category, CategoryMenu pivot)
     {
         this.categories.put(category, pivot);
     }
@@ -78,49 +104,27 @@ public class Menu extends Model<Menu>
         this.orders = orders;
     }
 
-    public void addOrder(Order order)
+    public void addOrder (Order order)
     {
         this.orders.add(order);
-    }
-
-    public ArrayList<OrderProduct> getOrderProducts ()
-    {
-        return orderProducts;
-    }
-
-    public void setOrderProducts (ArrayList<OrderProduct> orderProducts)
-    {
-        this.orderProducts = orderProducts;
-    }
-
-    public void addOrderProduct(OrderProduct orderProduct)
-    {
-        this.orderProducts.add(orderProduct);
     }
 
     @Override
     protected void recopy (Menu obj)
     {
-
+        this.name = obj.name;
+        this.description = obj.description;
+        this.price = obj.price;
+        this.categories = obj.categories;
+        this.orders = obj.orders;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
     }
 
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
-    }
 
     @Override
     public boolean save ()
@@ -129,9 +133,37 @@ public class Menu extends Model<Menu>
     }
 
     @Override
+    public Menu loadAll ()
+    {
+        Menu tmp = new MenusManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Menu loadAll (UrlParametersMap parameters)
+    {
+        loadOrders(parameters);
+        loadCategories(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Menu> getManagerInstance ()
+    {
+        return new MenusManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Menu{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", " +
-                "categories=" + categories + ", orders=" + orders + '}';
+        return "Menu{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", "
+                + "categories=" + categories + ", orders=" + orders + '}';
     }
 }

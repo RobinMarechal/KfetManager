@@ -1,9 +1,11 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.EventAccessoriesManager;
+import fr.polytech.marechal.models.managers.EventsManager;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -69,28 +71,31 @@ public class EventAccessory extends Model<EventAccessory>
         this.event = event;
     }
 
+    public EventAccessory loadEvent ()
+    {
+        return loadEvent(new UrlParametersMap());
+    }
+
+    public EventAccessory loadEvent (UrlParametersMap parameters)
+    {
+        event = new EventsManager().find(eventId, parameters);
+        return this;
+    }
+
     @Override
     protected void recopy (EventAccessory obj)
     {
-
+        eventId = obj.eventId;
+        name = obj.name;
+        cost = obj.cost;
+        quantity = obj.quantity;
+        event = obj.event;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -100,9 +105,35 @@ public class EventAccessory extends Model<EventAccessory>
     }
 
     @Override
+    public EventAccessory loadAll ()
+    {
+        EventAccessory tmp = new EventAccessoriesManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public EventAccessory loadAll (UrlParametersMap parameters)
+    {
+        return loadEvent(parameters);
+    }
+
+    @Override
+    public ModelManager<EventAccessory> getManagerInstance ()
+    {
+        return new EventAccessoriesManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "EventAccessory{" + "id=" + getId() + ", eventId=" + eventId + ", name='" + name + '\'' + ", cost=" + cost + ", quantity=" +
-                quantity + ", event=" + event + '}';
+        return "EventAccessory{" + "id=" + getId() + ", eventId=" + eventId + ", name='" + name + '\'' + ", cost=" + cost + ", quantity="
+                + quantity + ", event=" + event + '}';
     }
 }

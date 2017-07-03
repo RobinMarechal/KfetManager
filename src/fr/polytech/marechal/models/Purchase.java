@@ -1,9 +1,10 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.PurchasesManager;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -66,27 +67,39 @@ public class Purchase extends Model<Purchase>
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public Purchase loadAll ()
+    {
+        return this;
+    }
+
+    @Override
+    public Purchase loadAll (UrlParametersMap parameters)
+    {
+        return this;
+    }
+
+    @Override
+    public ModelManager<Purchase> getManagerInstance ()
+    {
+        return new PurchasesManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

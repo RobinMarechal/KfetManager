@@ -1,27 +1,19 @@
-package fr.polytech.marechal.models.factories;
+package fr.polytech.marechal.models.managers;
 
 import configs.ApiConfig;
-import fr.polytech.marechal.libs.mvc.models.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.Customer;
-
-import java.util.ArrayList;
 
 /**
  * @author Robin
  * @date 25/06/2017
  */
-public class CustomerFactory extends ModelFactory<Customer>
+public class CustomersManager extends ModelManager<Customer>
 {
     @Override
     public String getBaseUrl ()
     {
         return ApiConfig.getApiUrl() + "customers";
-    }
-
-    @Override
-    public ArrayList<Customer> allWithRelations ()
-    {
-        return null;
     }
 
     @Override

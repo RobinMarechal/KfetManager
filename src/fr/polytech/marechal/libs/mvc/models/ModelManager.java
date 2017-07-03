@@ -1,13 +1,14 @@
 package fr.polytech.marechal.libs.mvc.models;
 
+import configs.ApiConfig;
 import fr.polytech.marechal.libs.Helpers;
-import fr.polytech.marechal.libs.api.ApiQuery;
-import fr.polytech.marechal.libs.api.ApiQueryBuilder;
-import fr.polytech.marechal.libs.api.UrlParametersMap;
+import fr.polytech.marechal.libs.api.*;
 import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -21,9 +22,9 @@ import java.util.ArrayList;
  * @author Robin
  * @date 15/06/2017
  */
-public abstract class ModelFactory<T extends Model>
+public abstract class ModelManager<T extends Model>
 {
-    public T find (int id, UrlParametersMap parametersMap)
+    public T find (int id, @NotNull UrlParametersMap parametersMap)
     {
         try
         {
@@ -54,15 +55,13 @@ public abstract class ModelFactory<T extends Model>
 
     public ArrayList<T> all (@NotNull UrlParametersMap parametersMap)
     {
+        ArrayList<T> list = new ArrayList<>();
         try
         {
-            ArrayList<T> list = new ArrayList<>();
 
             ApiQuery q = ApiQueryBuilder.create(getBaseUrl())
                                         .setUrlParams(parametersMap)
                                         .getQuery();
-
-            System.out.println(q);
 
             JSONArray array = q.execute()
                                .getJson();
@@ -75,22 +74,67 @@ public abstract class ModelFactory<T extends Model>
                 }
                 catch (ReflectiveOperationException e)
                 {
+                    list.add(null);
                     e.printStackTrace();
                 }
             });
 
-            return list;
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            return null;
         }
+
+        return list;
     }
 
     public ArrayList<T> all ()
     {
         return all(new UrlParametersMap());
+    }
+
+    public ArrayList<T> ofUrl (String url)
+    {
+        return ofUrl(url, new UrlParametersMap());
+    }
+
+    public ArrayList<T> ofUrl (String url, UrlParametersMap urlParametersMap)
+    {
+        ArrayList<T> list = new ArrayList<>();
+
+        try
+        {
+            if (url.charAt(0) == '/')
+            {
+                url = url.substring(1);
+            }
+
+            ApiQuery q = ApiQueryBuilder.create(ApiConfig.getApiUrl() + url)
+                                        .setUrlParams(urlParametersMap)
+                                        .getQuery();
+
+            JSONArray json = q.execute()
+                              .getJson();
+
+
+            for (Object obj : json)
+            {
+                try
+                {
+                    list.add(buildFromJson(((JSONObject) obj)));
+                }
+                catch(ReflectiveOperationException e)
+                {
+                    list.add(null);
+                    e.printStackTrace();
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public T buildFromJson (JSONObject json) throws ReflectiveOperationException
@@ -109,9 +153,10 @@ public abstract class ModelFactory<T extends Model>
                 continue;
             }
 
-            if(key.equals("id"))
+            if (key.equals("id"))
             {
-                instance.setId(Integer.valueOf(value.toString()).intValue());
+                instance.setId(Integer.valueOf(value.toString())
+                                      .intValue());
                 continue;
             }
 
@@ -208,12 +253,12 @@ public abstract class ModelFactory<T extends Model>
                 ParameterizedType listType = (ParameterizedType) field.getGenericType();
 
                 String typeName         = listType.getActualTypeArguments()[0].getTypeName();
-                String factoryClassName = Helpers.getFactoryOfModel(typeName);
+                String factoryClassName = Helpers.getManagerOfModel(typeName);
 
                 Class<?> modelClazz   = Class.forName(typeName);
                 Class<?> factoryClazz = Class.forName(factoryClassName);
 
-                ModelFactory factory = (ModelFactory) factoryClazz.newInstance();
+                ModelManager factory = (ModelManager) factoryClazz.newInstance();
 
                 String addMethodName = Helpers.getAddingMethodName(camelCaseKey);
                 Method addMethod     = clazz.getDeclaredMethod(addMethodName, modelClazz);
@@ -236,17 +281,17 @@ public abstract class ModelFactory<T extends Model>
                 String modelTypeName = listType.getActualTypeArguments()[0].getTypeName();
                 String pivotTypeName = listType.getActualTypeArguments()[1].getTypeName();
 
-                String modelFactoryClassName = Helpers.getFactoryOfModel(modelTypeName);
-                String pivotFactoryClassName = Helpers.getFactoryOfModel(pivotTypeName);
+                String modelManagerClassName = Helpers.getManagerOfModel(modelTypeName);
+                String pivotManagerClassName = Helpers.getManagerOfModel(pivotTypeName);
 
-                Class<?> modelClazz        = Class.forName(modelTypeName);
-                Class<?> pivotClazz        = Class.forName(pivotTypeName);
+                Class<?> modelClazz = Class.forName(modelTypeName);
+                Class<?> pivotClazz = Class.forName(pivotTypeName);
 
-                Class<?> modelFactoryClazz = Class.forName(modelFactoryClassName);
-                Class<?> pivotFactoryClazz = Class.forName(pivotFactoryClassName);
+                Class<?> modelManagerClazz = Class.forName(modelManagerClassName);
+                Class<?> pivotManagerClazz = Class.forName(pivotManagerClassName);
 
-                ModelFactory modelFactory = (ModelFactory) modelFactoryClazz.newInstance();
-                ModelFactory pivotFactory = (ModelFactory) pivotFactoryClazz.newInstance();
+                ModelManager modelManager = (ModelManager) modelManagerClazz.newInstance();
+                ModelManager pivotManager = (ModelManager) pivotManagerClazz.newInstance();
 
                 String addMethodName = Helpers.getAddingMethodName(camelCaseKey);
                 Method addMethod     = clazz.getDeclaredMethod(addMethodName, modelClazz, pivotClazz);
@@ -256,10 +301,10 @@ public abstract class ModelFactory<T extends Model>
                 for (Object v : array)
                 {
                     JSONObject modelJson = ((JSONObject) v);
-                    Object model = modelFactory.buildFromJson(modelJson);
+                    Object     model     = modelManager.buildFromJson(modelJson);
 
                     JSONObject pivotJson = (JSONObject) modelJson.get("pivot");
-                    Object pivot = pivotJson == null ? null : pivotFactory.buildFromJson(pivotJson);
+                    Object     pivot     = pivotJson == null ? null : pivotManager.buildFromJson(pivotJson);
 
                     addMethod.invoke(instance, modelClazz.cast(model), pivotClazz.cast(pivot));
                 }
@@ -269,20 +314,19 @@ public abstract class ModelFactory<T extends Model>
                 String objName = field.getType()
                                       .getName();
 
-                String factoryClassName = Helpers.getFactoryOfModel(objName);
+                String managerClassName = Helpers.getManagerOfModel(objName);
 
                 Class<?> modelClazz   = Class.forName(objName);
-                Class<?> factoryClazz = Class.forName(factoryClassName);
+                Class<?> managerClazz = Class.forName(managerClassName);
 
-                ModelFactory factory = (ModelFactory) factoryClazz.newInstance();
+                ModelManager manager = (ModelManager) managerClazz.newInstance();
 
-                Method factoryBuildMethod = factoryClazz.getMethod("buildFromJson", JSONObject.class);
+                Method managerBuildMethod = managerClazz.getMethod("buildFromJson", JSONObject.class);
 
-                Object result = factoryBuildMethod.invoke(factory, ((JSONObject) value));
+                Object result = managerBuildMethod.invoke(manager, ((JSONObject) value));
 
                 setter = clazz.getDeclaredMethod(setterName, modelClazz);
                 setter.invoke(instance, modelClazz.cast(result));
-
             }
         }
 
@@ -291,9 +335,105 @@ public abstract class ModelFactory<T extends Model>
 
     public abstract String getBaseUrl ();
 
-    public abstract ArrayList<T> allWithRelations ();
+    public ArrayList<T> allWithRelations ()
+    {
+        return all(new UrlParametersMap().withAllRelations());
+    }
 
     protected abstract Class<T> getModelInstanceClass ();
+
+    public T create(Model<T> model) throws IOException
+    {
+        try
+        {
+            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl(), Http.POST)
+                                              .setData(model.toHashMap())
+                                              .getQuery()
+                                              .execute();
+
+            if(resp.getCode() >= 400)
+            {
+                return null;
+            }
+
+            JSONArray json = resp.getJson();
+
+            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            {
+                return null;
+            }
+
+            T res = buildFromJson(((JSONObject) json.get(0)));
+
+            return res;
+        }
+        catch (ParseException | ReflectiveOperationException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public T update(Model<T> model) throws IOException
+    {
+        try
+        {
+            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl() + "/" + model.getId(), Http.PUT)
+                                              .setData(model.toHashMap())
+                                              .getQuery()
+                                              .execute();
+
+            if(resp.getCode() >= 400)
+            {
+                return null;
+            }
+
+            JSONArray json = resp.getJson();
+
+            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            {
+                return null;
+            }
+
+            T res = buildFromJson(((JSONObject) json.get(0)));
+
+            return res;
+        }
+        catch (ParseException | ReflectiveOperationException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean delete(Model<T> model) throws IOException
+    {
+        try
+        {
+            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl() + "/" + model.getId(), Http.DELETE)
+                                              .getQuery()
+                                              .execute();
+
+            if(resp.getCode() >= 400)
+            {
+                return false;
+            }
+
+            JSONArray json = resp.getJson();
+
+            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            {
+                return false;
+            }
+
+            return true;
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public String getModelTableName () throws ReflectiveOperationException
     {

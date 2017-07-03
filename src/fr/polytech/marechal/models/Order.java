@@ -1,10 +1,11 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
+import fr.polytech.marechal.models.managers.*;
 
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,12 +19,58 @@ public class Order extends Model<Order>
     private int customerId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private int menuId;
 
-    private ArrayList<Menu> menus = new ArrayList<>();
     private RelationsMap<Product, OrderProduct> products = new RelationsMap<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+    private Menu menu;
     private Customer customer;
 
+    public Order loadCustomer ()
+    {
+        return loadCustomer(new UrlParametersMap());
+    }
+
+    public Order loadCustomer (UrlParametersMap parameters)
+    {
+        customer = new CustomersManager().find(customerId, parameters);
+        return this;
+    }
+
+    public Order loadMenu ()
+    {
+        return loadMenu(new UrlParametersMap());
+    }
+
+    public Order loadMenu (UrlParametersMap parameters)
+    {
+        menu = new MenusManager().find(menuId, parameters);
+        return this;
+    }
+
+    public Order loadProducts ()
+    {
+        return loadProducts(new UrlParametersMap());
+    }
+
+    public Order loadProducts (UrlParametersMap parameters)
+    {
+        ArrayList<Product> tmp = new ProductsManager().ofUrl("orders/" + getId() + "/products", parameters);
+        this.products = new RelationsMap<>();
+        this.products.addModels(tmp);
+        return this;
+    }
+
+    public Order loadOrderProducts ()
+    {
+        return loadOrderProducts(new UrlParametersMap());
+    }
+
+    public Order loadOrderProducts (UrlParametersMap parameters)
+    {
+        orderProducts = new OrderProductsManager().ofUrl("orders/" + getId() + "/orderProducts", parameters);
+        return this;
+    }
 
     public int getCustomerId ()
     {
@@ -55,19 +102,14 @@ public class Order extends Model<Order>
         this.updatedAt = updatedAt;
     }
 
-    public ArrayList<Menu> getMenus ()
+    public Menu getMenu ()
     {
-        return menus;
+        return menu;
     }
 
-    public void setMenus (ArrayList<Menu> menus)
+    public void setMenu (Menu menu)
     {
-        this.menus = menus;
-    }
-
-    public void addMenu(Menu menu)
-    {
-        this.menus.add(menu);
+        this.menu = menu;
     }
 
     public RelationsMap<Product, OrderProduct> getProducts ()
@@ -80,7 +122,7 @@ public class Order extends Model<Order>
         this.products = products;
     }
 
-    public void addProduct(Product product, OrderProduct pivot)
+    public void addProduct (Product product, OrderProduct pivot)
     {
         this.products.put(product, pivot);
     }
@@ -95,7 +137,7 @@ public class Order extends Model<Order>
         this.orderProducts = orderProducts;
     }
 
-    public void addOrderProduct(OrderProduct orderProduct)
+    public void addOrderProduct (OrderProduct orderProduct)
     {
         this.orderProducts.add(orderProduct);
     }
@@ -113,25 +155,20 @@ public class Order extends Model<Order>
     @Override
     protected void recopy (Order obj)
     {
-
+        customerId = obj.customerId;
+        menuId = obj.menuId;
+        createdAt = obj.createdAt;
+        updatedAt = obj.updatedAt;
+        products = obj.products;
+        orderProducts = obj.orderProducts;
+        menu = obj.menu;
+        customer = obj.customer;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -141,9 +178,39 @@ public class Order extends Model<Order>
     }
 
     @Override
+    public Order loadAll ()
+    {
+        Order tmp = new OrdersManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Order loadAll (UrlParametersMap parameters)
+    {
+        loadCustomer(parameters);
+        loadProducts(parameters);
+        loadMenu(parameters);
+        loadOrderProducts(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Order> getManagerInstance ()
+    {
+        return null;
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Order{" + "id=" + getId() + ", customerId=" + customerId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", " +
-                "menus=" + menus + ", products=" + products + ", customer=" + customer + '}';
+        return "Order{" + "id=" + getId() + ", customerId=" + customerId + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", "
+                + "menu=" + menu + ", products=" + products + ", customer=" + customer + '}';
     }
 }

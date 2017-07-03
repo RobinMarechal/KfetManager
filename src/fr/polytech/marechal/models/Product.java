@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.libs.mvc.models.RelationsMap;
+import fr.polytech.marechal.models.managers.*;
+import org.jetbrains.annotations.Nullable;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,40 +24,97 @@ public class Product extends Model<Product>
 
     private Subcategory subcategory;
     private Category category;
-    private ArrayList<Order> orders = new ArrayList<>();
-    private ArrayList<Restocking> restockings = new ArrayList<>();
-    private ArrayList<ProductRestocking> productRestockings = new ArrayList<>();
-    private ArrayList<Event> events = new ArrayList<>();
-    private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+    private RelationsMap<Order, OrderProduct> orders = new RelationsMap<>();
+    private RelationsMap<Restocking, ProductRestocking> restockings = new RelationsMap<>();
+    private RelationsMap<Event, EventProduct> events = new RelationsMap<>();
 
-    public ArrayList<Restocking> getRestockings ()
+    public Product loadSubcategory ()
+    {
+        return loadSubcategory(new UrlParametersMap());
+    }
+
+    public Product loadSubcategory (UrlParametersMap parameters)
+    {
+        subcategory = new SubcategoriesManager().find(subcategoryId, parameters);
+        return this;
+    }
+
+    public Product loadCategory ()
+    {
+        return loadCategory(new UrlParametersMap());
+    }
+
+    public Product loadCategory (UrlParametersMap parameters)
+    {
+        ArrayList<Category> categories = new CategoriesManager().ofUrl("products/" + getId() + "/category", parameters);
+        if (!categories.isEmpty())
+        {
+            category = categories.get(0);
+        }
+
+        return this;
+    }
+
+    public Product loadOrders ()
+    {
+        return loadOrders(new UrlParametersMap());
+    }
+
+    public Product loadOrders (UrlParametersMap parameters)
+    {
+        ArrayList<Order> orderList = new OrdersManager().ofUrl("products/" + getId() + "/orders", parameters);
+        orders = new RelationsMap<>();
+        orders.addModels(orderList);
+        return this;
+    }
+
+    public Product loadRestockings ()
+    {
+        return loadRestockings(new UrlParametersMap());
+    }
+
+    public Product loadRestockings (UrlParametersMap parameters)
+    {
+        ArrayList<Restocking> restockings = new RestockingsManager().ofUrl("products/" + getId() + "/restockings", parameters);
+        this.restockings = new RelationsMap<>();
+        this.restockings.addModels(restockings);
+        return this;
+    }
+
+    public Product loadEvents ()
+    {
+        return loadEvents(new UrlParametersMap());
+    }
+
+    public Product loadEvents (UrlParametersMap parameters)
+    {
+        ArrayList<Event> events = new EventsManager().ofUrl("products/" + getId() + "/events", parameters);
+        this.events = new RelationsMap<>();
+        this.events.addModels(events);
+        return this;
+    }
+
+    public RelationsMap<Restocking, ProductRestocking> getRestockings ()
     {
         return restockings;
     }
 
-    public void setRestockings (ArrayList<Restocking> restockings)
+    public void setRestockings (RelationsMap<Restocking, ProductRestocking> restockings)
     {
         this.restockings = restockings;
     }
 
-    public void addRestocking (Restocking restocking)
+    public void addRestocking (Restocking restocking, @Nullable ProductRestocking pivot)
     {
-        this.restockings.add(restocking);
-    }
+        if (pivot == null)
+        {
+            pivot = new ProductRestocking();
+            pivot.setProductId(getId());
+            pivot.setRestockingId(restocking.getId());
+            pivot.setQuantity(1);
+        }
 
-    public ArrayList<ProductRestocking> getProductRestockings ()
-    {
-        return productRestockings ;
-    }
-
-    public void setProductRestockings (ArrayList<ProductRestocking> productRestockings)
-    {
-        this.productRestockings = productRestockings;
-    }
-
-    public void addProductRestocking (ProductRestocking productRestocking)
-    {
-        this.productRestockings.add(productRestocking);
+        this.restockings.put(restocking, pivot);
     }
 
     public String getName ()
@@ -127,73 +187,70 @@ public class Product extends Model<Product>
         this.category = category;
     }
 
-    public ArrayList<Order> getOrders ()
+    public RelationsMap<Order, OrderProduct> getOrders ()
     {
         return orders;
     }
 
-    public void setOrders (ArrayList<Order> orders)
+    public void setOrders (RelationsMap<Order, OrderProduct> orders)
     {
         this.orders = orders;
     }
 
-    public void addOrder (Order order)
+    public void addOrder (Order order, @Nullable OrderProduct pivot)
     {
-        this.orders.add(order);
+        if (pivot == null)
+        {
+            pivot = new OrderProduct();
+            pivot.setProductId(getId());
+            pivot.setOrderId(order.getId());
+            pivot.setQuantity(1);
+        }
+
+        this.orders.put(order, pivot);
     }
 
-    public ArrayList<OrderProduct> getOrderProducts ()
-    {
-        return orderProducts;
-    }
-
-    public void setOrderProducts (ArrayList<OrderProduct> orderProducts)
-    {
-        this.orderProducts = orderProducts;
-    }
-
-    public void addOrderProduct(OrderProduct orderProduct)
-    {
-        this.orderProducts.add(orderProduct);
-    }
-
-    public ArrayList<Event> getEvents ()
+    public RelationsMap<Event, EventProduct> getEvents ()
     {
         return events;
     }
 
-    public void setEvents (ArrayList<Event> events)
+    public void setEvents (RelationsMap<Event, EventProduct> events)
     {
         this.events = events;
     }
 
-    public void addEvent (Event event)
+    public void addEvent (Event event, @Nullable EventProduct pivot)
     {
-        this.events.add(event);
+        if (pivot == null)
+        {
+            pivot = new EventProduct();
+            pivot.setProductId(getId());
+            pivot.setEventId(event.getId());
+        }
+
+        this.events.put(event, pivot);
     }
 
     @Override
     protected void recopy (Product obj)
     {
-
+        this.name = obj.name;
+        this.description = obj.description;
+        this.price = obj.price;
+        this.quantity = obj.quantity;
+        this.subcategoryId = obj.subcategoryId;
+        this.subcategory = obj.subcategory;
+        this.category = obj.category;
+        this.orders = obj.orders;
+        this.restockings = obj.restockings;
+        this.events = obj.events;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -203,10 +260,41 @@ public class Product extends Model<Product>
     }
 
     @Override
+    public Product loadAll ()
+    {
+        Product tmp = new ProductsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Product loadAll (UrlParametersMap parameters)
+    {
+        loadSubcategory(parameters);
+        loadCategory(parameters);
+        loadRestockings(parameters);
+        loadEvents(parameters);
+        loadOrders(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Product> getManagerInstance ()
+    {
+        return new ProductsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Product{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + ", " +
-                "quantity=" + quantity + ", subcategoryId=" + subcategoryId + ", subcategory=" + subcategory + ", category=" + category + ", "
-                + "orderProducts=" + orders + '}';
+        return "Product{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + "," +
+                "" + "" + "" + "" + " " + "quantity=" + quantity + ", subcategoryId=" + subcategoryId + ", subcategory=" + subcategory +
+                ", " + "category=" + category + ", " + "orderProducts=" + orders + '}';
     }
 }

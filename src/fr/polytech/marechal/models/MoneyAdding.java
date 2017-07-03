@@ -1,9 +1,10 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.MoneyAddingsManager;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -63,30 +64,46 @@ public class MoneyAdding extends Model<MoneyAdding>
     protected void recopy (MoneyAdding obj)
     {
 
+        date = obj.date;
+        amount = obj.amount;
+        description = obj.description;
+        reason = obj.reason;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public MoneyAdding loadAll ()
+    {
+        return this;
+    }
+
+    @Override
+    public MoneyAdding loadAll (UrlParametersMap parameters)
+    {
+        return this;
+    }
+
+    @Override
+    public ModelManager<MoneyAdding> getManagerInstance ()
+    {
+        return new MoneyAddingsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

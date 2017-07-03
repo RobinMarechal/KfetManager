@@ -12,7 +12,7 @@ import java.util.*;
 public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map<M, P>
 {
 
-    private List<Node<M, P>> pairs = new ArrayList<>();
+    private List<Pair<M, P>> pairs = new ArrayList<>();
 
     /**
      * Returns the number of model-pivot mappings in this map.  If the
@@ -58,7 +58,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
     @Override
     public boolean containsKey (Object key)
     {
-        for (Node<M, P> node : pairs)
+        for (Pair<M, P> node : pairs)
         {
             if (node.getKey()
                     .equals(key))
@@ -91,7 +91,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
     @Override
     public boolean containsValue (Object value)
     {
-        for (Node<M, P> node : pairs)
+        for (Pair<M, P> node : pairs)
         {
             if (node.getValue()
                     .equals(value))
@@ -131,7 +131,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
     @Override
     public P get (Object key)
     {
-        for (Node<M, P> node : pairs)
+        for (Pair<M, P> node : pairs)
         {
             if (node.getKey()
                     .equals(key))
@@ -186,7 +186,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
             }
         }
 
-        Node<M, P> node = new Node<>(key);
+        Pair<M, P> node = new Pair<>(key);
         node.setValue(value);
 
         if (index == -1)
@@ -366,7 +366,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
         return new ArrayList<>(values());
     }
 
-    public Node<M, P> get (int index)
+    public Pair<M, P> get (int index)
     {
         return pairs.get(index);
     }
@@ -383,19 +383,24 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
                     .getPivot();
     }
 
+    public void addModels (ArrayList<M> models)
+    {
+        models.forEach(m -> pairs.add(new Pair<M, P>(m, null)));
+    }
 
-    public static class Node<M, P> implements Map.Entry<M, P>
+
+    public static class Pair<M, P> implements Map.Entry<M, P>
     {
         private final M model;
         private P pivot;
 
-        public Node (M key, P value)
+        public Pair (M key, P value)
         {
             this.model = key;
             this.pivot = value;
         }
 
-        public Node (M key)
+        public Pair (M key)
         {
             this.model = key;
         }

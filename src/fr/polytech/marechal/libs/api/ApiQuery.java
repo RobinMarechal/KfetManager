@@ -15,10 +15,11 @@ public class ApiQuery
     private final Http httpMethod;
     private HashMap<String, Object> data;
 
-    public ApiQuery (String completeUrl, Http method)
+    public ApiQuery (String completeUrl, Http method, HashMap<String, Object> data)
     {
         this.httpMethod = method;
         this.completeUrl = completeUrl;
+        this.data = data;
     }
 
     public ApiResponse execute () throws IOException, ParseException

@@ -1,9 +1,10 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.KfetManager;
 
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -83,31 +84,50 @@ public class Kfet extends Model<Kfet>
     @Override
     protected void recopy (Kfet obj)
     {
-
+        createdAt = obj.createdAt;
+        updatedAt = obj.updatedAt;
+        balance = obj.balance;
+        reasonId = obj.reasonId;
+        reasonTable = obj.reasonTable;
+        reasonType = obj.reasonType;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public Kfet loadAll ()
+    {
+        // Nothing
+        return this;
+    }
+
+    @Override
+    public Kfet loadAll (UrlParametersMap parameters)
+    {
+        // Nothin
+        return this;
+    }
+
+    @Override
+    public ModelManager<Kfet> getManagerInstance ()
+    {
+        return new KfetManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package fr.polytech.marechal.libs.api;
 
-import fr.polytech.marechal.libs.mvc.models.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,16 +36,17 @@ public class ApiQueryBuilder
         this.url = url;
     }
 
-    public static <T extends ModelFactory> ApiQueryBuilder forModelFactory (T modelFactory)
+    public static <T extends ModelManager> ApiQueryBuilder forModelManager (T modelFactory)
     {
-        return forModelFactory(modelFactory, Http.GET);
+        return forModelManager(modelFactory, Http.GET);
     }
 
-    public static <T extends ModelFactory> ApiQueryBuilder forModelFactory (T modelFactory, Http httpMethod)
+    public static <T extends ModelManager> ApiQueryBuilder forModelManager (T modelFactory, Http httpMethod)
     {
         String url = modelFactory.getBaseUrl();
         return create(url, httpMethod);
     }
+
 
     public static ApiQueryBuilder create (String url)
     {
@@ -53,6 +54,16 @@ public class ApiQueryBuilder
     }
 
     public static ApiQueryBuilder create (String url, Http httpMethod)
+    {
+        return new ApiQueryBuilder(url, httpMethod);
+    }
+
+    public ApiQueryBuilder atUrl (String url)
+    {
+        return atUrl(url, Http.GET);
+    }
+
+    public static ApiQueryBuilder atUrl (String url, Http httpMethod)
     {
         return new ApiQueryBuilder(url, httpMethod);
     }
@@ -124,7 +135,7 @@ public class ApiQueryBuilder
 
         if (orderBy == null && limit == -1 && relations.isEmpty())
         {
-            this.query = new ApiQuery(url, httpMethod);
+            this.query = new ApiQuery(url, httpMethod, data);
             return this.query;
         }
 
@@ -166,7 +177,7 @@ public class ApiQueryBuilder
             url = url.substring(0, url.length() - 1);
         }
 
-        this.query = new ApiQuery(url, httpMethod);
+        this.query = new ApiQuery(url, httpMethod, data);
         return this.query;
     }
 

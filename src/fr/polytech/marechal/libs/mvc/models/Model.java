@@ -1,14 +1,9 @@
 package fr.polytech.marechal.libs.mvc.models;
 
-import fr.polytech.marechal.libs.database.query.builders.CreateQueryBuilder;
-import fr.polytech.marechal.libs.database.query.builders.SelectQueryBuilder;
-import fr.polytech.marechal.libs.database.query.builders.UpdateQueryBuilder;
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
-import fr.polytech.marechal.libs.database.query.results.QueryResultList;
-import fr.polytech.marechal.libs.mvc.models.exceptions.ModelException;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import org.jetbrains.annotations.NotNull;
 
-import java.sql.SQLException;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -19,109 +14,6 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
 {
     protected int id;
 
-    protected String table;
-    protected String primaryKey = "id";
-
-    protected abstract void recopy (T obj);
-
-    public String getTable ()
-    {
-        return table;
-    }
-
-    public void setTable (String table)
-    {
-        this.table = table;
-    }
-
-    protected static QueryResultList modelCreate (String table, HashMap<String, Object> data) throws SQLException
-    {
-        return CreateQueryBuilder.table(table)
-                                 .setValues(data)
-                                 .buildQuery()
-                                 .execute();
-    }
-
-    public abstract boolean update (HashMap<String, Object> data);
-
-    protected static QueryResultList modelUpdate (String table, HashMap<String, Object> data) throws SQLException
-    {
-        return UpdateQueryBuilder.table(table)
-                                 .setValues(data)
-                                 .buildQuery()
-                                 .execute();
-    }
-
-    public boolean isStoredInDatabase () throws SQLException
-    {
-        QueryResultList results = SelectQueryBuilder.select(table)
-                                                    .count()
-                                                    .where(primaryKey, "=", getPrimaryKeyValue())
-                                                    .buildQuery()
-                                                    .execute();
-        return !results.isEmpty() && results.get(0)
-                                            .getInt("count_all") != 0;
-    }
-
-    protected abstract String getPrimaryKeyValue ();
-
-    // ABSTRACT
-
-    public abstract void buildFromResultMap (QueryResult rs) throws SQLException;
-
-    public boolean isSaved ()
-    {
-        try
-        {
-            return isStoredInDatabase();
-        }
-        catch (SQLException e)
-        {
-            throw new ModelException(e.getClass()
-                                      .getSimpleName() + ": " + e.getMessage());
-        }
-    }
-
-    public abstract boolean save ();
-
-    /**
-     * Compares this object with the specified object for order.  Returns a
-     * negative integer, zero, or a positive integer as this object is less
-     * than, equal to, or greater than the specified object.
-     *
-     * <p>The implementor must ensure <tt>sgn(x.compareTo(y)) ==
-     * -sgn(y.compareTo(x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
-     * implies that <tt>x.compareTo(y)</tt> must throw an exception iff
-     * <tt>y.compareTo(x)</tt> throws an exception.)
-     *
-     * <p>The implementor must also ensure that the relation is transitive:
-     * <tt>(x.compareTo(y)&gt;0 &amp;&amp; y.compareTo(z)&gt;0)</tt> implies
-     * <tt>x.compareTo(z)&gt;0</tt>.
-     *
-     * <p>Finally, the implementor must ensure that <tt>x.compareTo(y)==0</tt>
-     * implies that <tt>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</tt>, for
-     * all <tt>z</tt>.
-     *
-     * <p>It is strongly recommended, but <i>not</i> strictly required that
-     * <tt>(x.compareTo(y)==0) == (x.equals(y))</tt>.  Generally speaking, any
-     * class that implements the <tt>Comparable</tt> interface and violates
-     * this condition should clearly indicate this fact.  The recommended
-     * language is "Note: this class has a natural ordering that is
-     * inconsistent with equals."
-     *
-     * <p>In the foregoing description, the notation
-     * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical
-     * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
-     * <tt>0</tt>, or <tt>1</tt> according to whether the value of
-     * <i>expression</i> is negative, zero or positive.
-     *
-     * @param model the object to be compared.
-     * @return a negative integer, zero, or a positive integer as this object
-     * is less than, equal to, or greater than the specified object.
-     * @throws NullPointerException if the specified object is null
-     * @throws ClassCastException   if the specified object's type prevents it
-     *                              from being compared to this object.
-     */
     @Override
     public int compareTo (@NotNull Model<T> model)
     {
@@ -137,4 +29,56 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
     {
         this.id = id;
     }
+
+
+    protected abstract void recopy (T obj);
+
+    // ABSTRACT
+
+    public boolean existsInDatabase ()
+    {
+        if (getId() < 1)
+        {
+            return false;
+        }
+
+        Model m = getManagerInstance().find(getId());
+
+        return m != null;
+    }
+
+    public abstract boolean save ();
+
+    public boolean saveWithoutRelations () throws IOException
+    {
+        Model tmp;
+
+        if (existsInDatabase()) // PUT
+        {
+            tmp = getManagerInstance().update(this);
+        }
+        else // POST
+        {
+            tmp = getManagerInstance().create(this);
+        }
+
+        if(tmp == null)
+            return false;
+
+        setId(tmp.getId());
+        return true;
+    }
+
+    public boolean delete () throws IOException
+    {
+        return getManagerInstance().delete(this);
+    }
+
+    public abstract T loadAll ();
+
+    public abstract T loadAll (UrlParametersMap parameters);
+
+    public abstract ModelManager<T> getManagerInstance ();
+
+    public abstract HashMap<String, Object> toHashMap ();
 }

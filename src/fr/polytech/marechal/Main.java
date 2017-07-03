@@ -5,8 +5,8 @@ import fr.polytech.marechal.libs.database.query.builders.SelectQueryBuilder;
 import fr.polytech.marechal.libs.database.query.builders.enums.Functions;
 import fr.polytech.marechal.models.Category;
 import fr.polytech.marechal.models.Product;
-import fr.polytech.marechal.models.factories.CategoryFactory;
-import fr.polytech.marechal.models.factories.ProductFactory;
+import fr.polytech.marechal.models.managers.CategoriesManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -25,14 +26,79 @@ public class Main
     public static void main (String[] args)
     {
         //        testBuildWithRelations();
-        testQueryBuilder();
+        //        testQueryBuilder();
+        //        testOfUrl();
+        //        testWithAllRelations();
+        //        testLoad();
+//        testCreateUpdateDelete();
+        
+        System.out.println(new CategoriesManager().allWithRelations());
+    }
+
+    private static void testCreateUpdateDelete ()
+    {
+        try
+        {
+            Category c = new Category();
+            c.setName("test test test");
+
+            System.out.println("creation");
+
+            c.saveWithoutRelations();
+
+            System.out.println("update");
+
+            c.setName("test test test test");
+
+            c.saveWithoutRelations();
+
+            System.out.println("deletion");
+
+            c.delete();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private static void testLoad ()
+    {
+        Category c = new CategoriesManager().find(1);
+
+        System.out.println(c);
+
+        c.loadAll(new UrlParametersMap().setLimit(2)
+                                        .setOrderBy("id", OrderBy.DESC));
+
+        System.out.println(c);
+
+    }
+
+    private static void testWithAllRelations ()
+    {
+        ArrayList<Category> categories = new CategoriesManager().all(new UrlParametersMap().withAllRelations());
+        for (Category category : categories)
+        {
+            System.out.println(category);
+        }
+    }
+
+    private static void testOfUrl ()
+    {
+        ArrayList<Product> products = new ProductsManager().ofUrl("/categories/1/products", new UrlParametersMap().setRelations(new
+                String[]{"subcategory.category"}));
+
+        System.out.println(products.get(0)
+                                   .getSubcategory()
+                                   .getCategory());
     }
 
     private static void testQueryBuilder ()
     {
         try
         {
-            ApiQuery query = ApiQueryBuilder.forModelFactory(new CategoryFactory())
+            ApiQuery query = ApiQueryBuilder.forModelManager(new CategoriesManager())
                                             .limit(5, 10)
                                             .orderBy("id")
                                             .with("subcategories", "menus")
@@ -47,11 +113,13 @@ public class Main
 
             UrlParametersMap paramMap = new UrlParametersMap().setRelations("menus");
 
-            Category category = new CategoryFactory().find(3, paramMap);
+            Category category = new CategoriesManager().find(3, paramMap);
 
             System.out.println(category);
 
-            category.getMenus().getPivotList().forEach(categoryMenu -> System.out.println(categoryMenu));
+            category.getMenus()
+                    .getPivotList()
+                    .forEach(categoryMenu -> System.out.println(categoryMenu));
         }
         catch (Exception e)
         {
@@ -187,7 +255,7 @@ public class Main
 
         try
         {
-            p = new ProductFactory().buildFromJson(json);
+            p = new ProductsManager().buildFromJson(json);
         }
         catch (ReflectiveOperationException e)
         {

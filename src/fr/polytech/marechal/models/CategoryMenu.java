@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.CategoriesManager;
+import fr.polytech.marechal.models.managers.CategoryMenusManager;
+import fr.polytech.marechal.models.managers.MenusManager;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -58,35 +61,76 @@ public class CategoryMenu extends Model<CategoryMenu>
         this.categoryId = categoryId;
     }
 
+    public CategoryMenu loadMenu ()
+    {
+        return loadMenu(new UrlParametersMap());
+    }
+
+    public CategoryMenu loadMenu (UrlParametersMap parameters)
+    {
+        menu = new MenusManager().find(menuId, parameters);
+        return this;
+    }
+
+    public CategoryMenu loadCategory ()
+    {
+        return loadCategory(new UrlParametersMap());
+    }
+
+    public CategoryMenu loadCategory (UrlParametersMap parameters)
+    {
+        category = new CategoriesManager().find(categoryId, parameters);
+        return this;
+    }
+
     @Override
 
     protected void recopy (CategoryMenu obj)
     {
-
+        menuId = obj.menuId;
+        categoryId = obj.categoryId;
+        menu = obj.menu;
+        category = obj.category;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public CategoryMenu loadAll ()
+    {
+        CategoryMenu tmp = new CategoryMenusManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public CategoryMenu loadAll (UrlParametersMap parameters)
+    {
+        loadMenu(parameters);
+        loadCategory(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<CategoryMenu> getManagerInstance ()
+    {
+        return new CategoryMenusManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

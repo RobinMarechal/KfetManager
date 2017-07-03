@@ -31,15 +31,31 @@ public class Helpers
         return res;
     }
 
-    public static String getFactoryOfModel (String modelName) // path/of/the/class
+    public static String plural (String str)
     {
-        String modelsPackage    = modelName.substring(0, modelName.lastIndexOf('.'));
-        String modelClassName   = modelName.substring(modelName.lastIndexOf('.') + 1);
-        String factoryClassName = modelClassName + "Factory";
+        if (str.endsWith("y"))
+        {
+            str = str.substring(0, str.length() - 1) + "ies";
+        }
+        else
+        {
+            str += "s";
+        }
 
-        String factoryPath = modelsPackage + ".factories." + factoryClassName;
+        return str;
+    }
 
-        return factoryPath;
+    public static String getManagerOfModel (String modelName) // path/of/the/class
+    {
+        String modelsPackage  = modelName.substring(0, modelName.lastIndexOf('.'));
+        String modelClassName = modelName.substring(modelName.lastIndexOf('.') + 1);
+
+        modelClassName = plural(modelClassName);
+        String managerClassname = modelClassName + "Manager";
+
+        String managerPath = modelsPackage + ".managers." + managerClassname;
+
+        return managerPath;
     }
 
     public static String getAddingMethodName (String str)

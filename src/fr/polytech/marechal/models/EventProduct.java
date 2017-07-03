@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.EventsManager;
+import fr.polytech.marechal.models.managers.EventProductsManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -113,28 +116,46 @@ public class EventProduct extends Model<EventProduct>
         this.product = product;
     }
 
+    public EventProduct loadEvent ()
+    {
+        return loadEvent(new UrlParametersMap());
+    }
+
+    public EventProduct loadEvent (UrlParametersMap parameters)
+    {
+        event = new EventsManager().find(eventId, parameters);
+        return this;
+    }
+
+    public EventProduct loadProduct ()
+    {
+        return loadProduct(new UrlParametersMap());
+    }
+
+    public EventProduct loadProduct (UrlParametersMap parameters)
+    {
+        product = new ProductsManager().find(productId, parameters);
+        return this;
+    }
+
     @Override
     protected void recopy (EventProduct obj)
     {
-
+        productId = obj.productId;
+        eventId = obj.eventId;
+        cost = obj.cost;
+        price = obj.price;
+        quantitySold = obj.quantitySold;
+        quantityBought = obj.quantityBought;
+        name = obj.name;
+        event = obj.event;
+        product = obj.product;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -144,10 +165,38 @@ public class EventProduct extends Model<EventProduct>
     }
 
     @Override
+    public EventProduct loadAll ()
+    {
+        EventProduct tmp = new EventProductsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public EventProduct loadAll (UrlParametersMap parameters)
+    {
+        loadEvent(parameters);
+        loadProduct(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<EventProduct> getManagerInstance ()
+    {
+        return new EventProductsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "EventProduct{" + "id=" + getId() + ", productId=" + productId + ", eventId=" + eventId + ", cost=" + cost + ", price=" + price
-                + ", quantitySold=" + quantitySold + ", quantityBought=" + quantityBought + ", name='" + name + '\'' + ", event=" + event
-                + ", product=" + product + '}';
+        return "EventProduct{" + "id=" + getId() + ", productId=" + productId + ", eventId=" + eventId + ", cost=" + cost + ", price=" +
+                price + ", quantitySold=" + quantitySold + ", quantityBought=" + quantityBought + ", name='" + name + '\'' + ", event=" +
+                event + ", product=" + product + '}';
     }
 }

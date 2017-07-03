@@ -1,9 +1,13 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.libs.mvc.models.RelationsMap;
+import fr.polytech.marechal.models.managers.ProductsManager;
+import fr.polytech.marechal.models.managers.RestockingsManager;
+import org.jetbrains.annotations.Nullable;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,24 +22,43 @@ public class Restocking extends Model<Restocking>
     private double cost;
     private String description;
 
-    private ArrayList<Product> products = new ArrayList<>();
-    private ArrayList<ProductRestocking> productRestockings = new ArrayList<>();
+    private RelationsMap<Product, ProductRestocking> products = new RelationsMap<>();
 
-    public ArrayList<Product> getProducts ()
+    public Restocking loadProducts ()
+    {
+        return loadProducts(new UrlParametersMap());
+    }
+
+    public Restocking loadProducts (UrlParametersMap parameters)
+    {
+        ArrayList<Product> list = new ProductsManager().ofUrl("restockings/"+getId()+"/products", parameters);
+        products = new RelationsMap<>();
+        products.addModels(list);
+        return this;
+    }
+
+    public RelationsMap<Product, ProductRestocking> getProducts ()
     {
         return products;
     }
 
-    public void setProducts (ArrayList<Product> products)
+    public void setProducts (RelationsMap<Product, ProductRestocking> products)
     {
         this.products = products;
     }
 
-    public void addProduct(Product product)
+    public void addProduct (Product product, @Nullable ProductRestocking pivot)
     {
-        this.products.add(product);
-    }
+        if (pivot == null)
+        {
+            pivot = new ProductRestocking();
+            pivot.setRestockingId(getId());
+            pivot.setProductId(product.getId());
+            pivot.setQuantity(1);
+        }
 
+        this.products.put(product, pivot);
+    }
 
     public LocalDate getDate ()
     {
@@ -67,49 +90,52 @@ public class Restocking extends Model<Restocking>
         this.description = description;
     }
 
-    public ArrayList<ProductRestocking> getProductRestockings ()
-    {
-        return productRestockings ;
-    }
-
-    public void setProductRestockings (ArrayList<ProductRestocking> productRestockings)
-    {
-        this.productRestockings = productRestockings;
-    }
-
-    public void addProductRestocking (ProductRestocking productRestocking)
-    {
-        this.productRestockings.add(productRestocking);
-    }
-
     @Override
     protected void recopy (Restocking obj)
     {
-
+        date = obj.date;
+        cost = obj.cost;
+        description = obj.description;
+        products = obj.products;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
     public boolean save ()
     {
         return false;
+    }
+
+    @Override
+    public Restocking loadAll ()
+    {
+        Restocking tmp = new RestockingsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Restocking loadAll (UrlParametersMap parameters)
+    {
+        loadProducts(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Restocking> getManagerInstance ()
+    {
+        return new RestockingsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
     }
 
     @Override

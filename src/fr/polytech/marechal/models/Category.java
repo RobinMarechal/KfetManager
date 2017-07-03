@@ -1,10 +1,14 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
+import fr.polytech.marechal.models.managers.CategoriesManager;
+import fr.polytech.marechal.models.managers.MenusManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
+import fr.polytech.marechal.models.managers.SubcategoriesManager;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,6 +33,63 @@ public class Category extends Model<Category>
     public void setName (String name)
     {
         this.name = name;
+    }
+
+    public Category loadSubcategories (UrlParametersMap parameters)
+    {
+        subcategories = new SubcategoriesManager().ofUrl("categories/" + getId() + "/subcategories", parameters);
+        return this;
+    }
+
+    public Category loadSubcategories ()
+    {
+        return loadSubcategories(new UrlParametersMap());
+    }
+
+    public Category loadMenus (UrlParametersMap parameters)
+    {
+        menus = new RelationsMap<>();
+        menus.addModels(new MenusManager().ofUrl("categories/" + getId() + "/menus", parameters));
+        return this;
+    }
+
+    public Category loadMenus ()
+    {
+        return loadMenus(new UrlParametersMap());
+    }
+
+    public Category loadProducts (UrlParametersMap parameters)
+    {
+        products = new ProductsManager().ofUrl("categories/" + getId() + "/products", parameters);
+        return this;
+    }
+
+    public Category loadProducts ()
+    {
+        return loadProducts(new UrlParametersMap());
+    }
+
+    @Override
+    public Category loadAll ()
+    {
+        Category tmp = new CategoriesManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Category loadAll (UrlParametersMap parameters)
+    {
+        loadProducts(parameters);
+        loadMenus(parameters);
+        loadSubcategories(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Category> getManagerInstance ()
+    {
+        return new CategoriesManager();
     }
 
     public ArrayList<Subcategory> getSubcategories ()
@@ -79,25 +140,21 @@ public class Category extends Model<Category>
     @Override
     protected void recopy (Category obj)
     {
-
+        name = obj.name;
+        subcategories = obj.subcategories;
+        menus = obj.menus;
+        products = obj.products;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
-        return false;
-    }
+        if (getId() < 1)
+        {
+            return false;
+        }
 
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
+        return (new CategoriesManager().find(getId())) != null;
     }
 
     @Override
@@ -107,9 +164,19 @@ public class Category extends Model<Category>
     }
 
     @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("id", getId());
+        map.put("name", name);
+
+        return map;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Category{" + "id=" + getId() + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", " +
-                "products=" + products + '}';
+        return "Category{" + "id=" + getId() + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", "
+                + "products=" + products + '}';
     }
 }

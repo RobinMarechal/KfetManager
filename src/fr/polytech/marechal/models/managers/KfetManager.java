@@ -1,27 +1,19 @@
-package fr.polytech.marechal.models.factories;
+package fr.polytech.marechal.models.managers;
 
 import configs.ApiConfig;
-import fr.polytech.marechal.libs.mvc.models.ModelFactory;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.Kfet;
-
-import java.util.ArrayList;
 
 /**
  * @author Robin
  * @date 25/06/2017
  */
-public class KfetFactory extends ModelFactory<Kfet>
+public class KfetManager extends ModelManager<Kfet>
 {
     @Override
     public String getBaseUrl ()
     {
         return ApiConfig.getApiUrl() + "kfet";
-    }
-
-    @Override
-    public ArrayList<Kfet> allWithRelations ()
-    {
-        return null;
     }
 
     @Override

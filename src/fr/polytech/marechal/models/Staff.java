@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.CustomersManager;
+import fr.polytech.marechal.models.managers.StaffsManager;
 
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,6 +21,22 @@ public class Staff extends Model<Staff>
     private String role;
 
     private Customer customer;
+
+    public Staff loadCustomer ()
+    {
+        return loadCustomer(new UrlParametersMap());
+    }
+
+    public Staff loadCustomer (UrlParametersMap parameters)
+    {
+        ArrayList<Customer> list = new CustomersManager().ofUrl("staff/"+getId()+"/customer", parameters);
+        if(!list.isEmpty())
+        {
+            customer = list.get(0);
+        }
+
+        return this;
+    }
 
 
     public String getFirstname ()
@@ -73,25 +92,17 @@ public class Staff extends Model<Staff>
     @Override
     protected void recopy (Staff obj)
     {
-
+        firstname = obj.firstname;
+        lastname = obj.lastname;
+        email = obj.email;
+        role = obj.role;
+        customer = obj.customer;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
-    }
-
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
     }
 
     @Override
@@ -101,9 +112,36 @@ public class Staff extends Model<Staff>
     }
 
     @Override
+    public Staff loadAll ()
+    {
+        Staff tmp = new StaffsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public Staff loadAll (UrlParametersMap parameters)
+    {
+        loadCustomer(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<Staff> getManagerInstance ()
+    {
+        return new StaffsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "Staff{" + "id=" + getId() + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email + '\''
-                + ", role='" + role + '\'' + ", customer=" + customer + '}';
+        return "Staff{" + "id=" + getId() + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\'' + ", email='" + email +
+                '\'' + ", role='" + role + '\'' + ", customer=" + customer + '}';
     }
 }

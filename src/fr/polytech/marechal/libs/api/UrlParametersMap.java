@@ -16,27 +16,27 @@ public class UrlParametersMap extends HashMap<String, Object>
 
     }
 
-    public UrlParametersMap (String params) throws ParseException
-    {
-        // ?field=value&field2=value&... || field=value&field2=value || field=value
-        if (!params.matches("\\??([a-zA-Z0-9]+=[a-zA-Z0-9]+&)*([a-zA-Z0-9]+=[a-zA-Z0-9]+)"))
-        {
-            throw new ParseException("The parameters' string format is invalid", 0);
-        }
-
-        if (params.charAt(0) == '?')
-        {
-            params = params.substring(1);
-        }
-
-        String array[] = params.split("&");
-
-        for (String param : array)
-        {
-            String split[] = param.split("=");
-            put(split[0], split[1]);
-        }
-    }
+//    public UrlParametersMap (String params) throws ParseException
+//    {
+//        // ?field=value&field2=value&... || field=value&field2=value || field=value
+//        if (!params.matches("\\??([a-zA-Z0-9]+=[a-zA-Z0-9]+&)*([a-zA-Z0-9]+=[a-zA-Z0-9]+)"))
+//        {
+//            throw new ParseException("The parameters' string format is invalid", 0);
+//        }
+//
+//        if (params.charAt(0) == '?')
+//        {
+//            params = params.substring(1);
+//        }
+//
+//        String array[] = params.split("&");
+//
+//        for (String param : array)
+//        {
+//            String split[] = param.split("=");
+//            put(split[0], split[1]);
+//        }
+//    }
 
     public UrlParametersMap setOrderBy (String field)
     {
@@ -85,7 +85,7 @@ public class UrlParametersMap extends HashMap<String, Object>
         }
 
         // rel1,rel2,...,reln
-        if (!relations.matches("([.a-zA-Z0-9]+,)*([.a-zA-Z0-9]+)"))
+        if (!relations.matches("(\\*|([.a-zA-Z0-9]+,)*([.a-zA-Z0-9]+))"))
         {
             throw new ParseException("The parameter value of 'with' format is invalid", 0);
         }
@@ -96,12 +96,28 @@ public class UrlParametersMap extends HashMap<String, Object>
         return this;
     }
 
+    public UrlParametersMap withAllRelations ()
+    {
+        try
+        {
+            return setRelations("*");
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+            return this;
+        }
+    }
+
     public UrlParametersMap setRelations (String... relations)
     {
         String str = "";
         for (String r : relations)
         {
-            str += r + ",";
+            if (!r.isEmpty())
+            {
+                str += r + ",";
+            }
         }
 
         if (!str.isEmpty())
@@ -116,7 +132,7 @@ public class UrlParametersMap extends HashMap<String, Object>
         catch (ParseException e)
         {
             e.printStackTrace();
-            return null;
+            return this;
         }
     }
 

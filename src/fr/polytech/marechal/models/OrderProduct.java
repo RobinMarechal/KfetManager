@@ -1,9 +1,12 @@
 package fr.polytech.marechal.models;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResult;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
+import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.managers.OrdersManager;
+import fr.polytech.marechal.models.managers.OrderProductsManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -14,13 +17,32 @@ public class OrderProduct extends Model<OrderProduct>
 {
     private int orderId;
     private int productId;
-    private int menuId;
     private double quantity;
 
     private Order order;
     private Product product;
-    private Menu menu;
 
+    public OrderProduct loadOrder ()
+    {
+        return loadOrder(new UrlParametersMap());
+    }
+
+    public OrderProduct loadOrder (UrlParametersMap parameters)
+    {
+        order = new OrdersManager().find(orderId, parameters);
+        return this;
+    }
+
+    public OrderProduct loadProduct ()
+    {
+        return loadProduct(new UrlParametersMap());
+    }
+
+    public OrderProduct loadProduct (UrlParametersMap parameters)
+    {
+        product = new ProductsManager().find(productId, parameters);
+        return this;
+    }
 
     public int getOrderId ()
     {
@@ -40,16 +62,6 @@ public class OrderProduct extends Model<OrderProduct>
     public void setProductId (int productId)
     {
         this.productId = productId;
-    }
-
-    public int getMenuId ()
-    {
-        return menuId;
-    }
-
-    public void setMenuId (int menuId)
-    {
-        this.menuId = menuId;
     }
 
     public double getQuantity ()
@@ -82,39 +94,23 @@ public class OrderProduct extends Model<OrderProduct>
         this.product = product;
     }
 
-    public Menu getMenu ()
-    {
-        return menu;
-    }
-
-    public void setMenu (Menu menu)
-    {
-        this.menu = menu;
-    }
 
     @Override
     protected void recopy (OrderProduct obj)
     {
-
+        orderId = obj.orderId;
+        productId = obj.productId;
+        quantity = obj.quantity;
+        order = obj.order;
+        product = obj.product;
     }
 
     @Override
-    public boolean update (HashMap<String, Object> data)
+    public boolean existsInDatabase ()
     {
         return false;
     }
 
-    @Override
-    protected String getPrimaryKeyValue ()
-    {
-        return null;
-    }
-
-    @Override
-    public void buildFromResultMap (QueryResult rs) throws SQLException
-    {
-
-    }
 
     @Override
     public boolean save ()
@@ -123,9 +119,37 @@ public class OrderProduct extends Model<OrderProduct>
     }
 
     @Override
+    public OrderProduct loadAll ()
+    {
+        OrderProduct tmp = new OrderProductsManager().find(getId(), new UrlParametersMap().withAllRelations());
+        recopy(tmp);
+        return this;
+    }
+
+    @Override
+    public OrderProduct loadAll (UrlParametersMap parameters)
+    {
+        loadProduct(parameters);
+        loadOrder(parameters);
+        return this;
+    }
+
+    @Override
+    public ModelManager<OrderProduct> getManagerInstance ()
+    {
+        return new OrderProductsManager();
+    }
+
+    @Override
+    public HashMap<String, Object> toHashMap ()
+    {
+        return null;
+    }
+
+    @Override
     public String toString ()
     {
-        return "OrderProduct{" + "id=" + getId() + ", orderId=" + orderId + ", productId=" + productId + ", menuId=" + menuId + ", quantity="
-                + quantity + ", order=" + order + ", product=" + product + ", menu=" + menu + '}';
+        return "OrderProduct{" + "id=" + getId() + ", orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + ", order="
+                + order + ", product=" + product + '}';
     }
 }
