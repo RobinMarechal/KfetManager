@@ -6,6 +6,7 @@ import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.CustomersManager;
 import fr.polytech.marechal.models.managers.StaffsManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -100,15 +101,15 @@ public class Staff extends Model<Staff>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(customer != null)
+        {
+            firstname = customer.getFirstname();
+            lastname = customer.getLastname();
+        }
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -135,7 +136,13 @@ public class Staff extends Model<Staff>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("firstname", firstname);
+        map.put("lastname", lastname);
+        map.put("email", email);
+        map.put("role", role);
+
+        return map;
     }
 
     @Override

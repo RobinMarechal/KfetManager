@@ -3,10 +3,11 @@ package fr.polytech.marechal.models;
 import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
-import fr.polytech.marechal.models.managers.EventsManager;
 import fr.polytech.marechal.models.managers.EventProductsManager;
+import fr.polytech.marechal.models.managers.EventsManager;
 import fr.polytech.marechal.models.managers.ProductsManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -153,15 +154,12 @@ public class EventProduct extends Model<EventProduct>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(eventId < 1)
+            return false;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -189,7 +187,16 @@ public class EventProduct extends Model<EventProduct>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("product_id", productId);
+        map.put("event_id", eventId);
+        map.put("cost", cost);
+        map.put("price", price);
+        map.put("quantity_sold", quantitySold);
+        map.put("quantity_bought", quantityBought);
+        map.put("name", name);
+
+        return map;
     }
 
     @Override

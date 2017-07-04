@@ -3,10 +3,11 @@ package fr.polytech.marechal.models;
 import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
-import fr.polytech.marechal.models.managers.OrdersManager;
 import fr.polytech.marechal.models.managers.OrderProductsManager;
+import fr.polytech.marechal.models.managers.OrdersManager;
 import fr.polytech.marechal.models.managers.ProductsManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -105,17 +106,14 @@ public class OrderProduct extends Model<OrderProduct>
         product = obj.product;
     }
 
-    @Override
-    public boolean existsInDatabase ()
-    {
-        return false;
-    }
-
 
     @Override
-    public boolean save ()
+    public boolean save () throws IOException
     {
-        return false;
+        if(productId < 1 || orderId < 1)
+            return false;
+
+        return saveWithoutRelations();
     }
 
     @Override
@@ -143,7 +141,12 @@ public class OrderProduct extends Model<OrderProduct>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("product_id", productId);
+        map.put("order_id", orderId);
+        map.put("quantity", quantity);
+
+        return map;
     }
 
     @Override

@@ -1,20 +1,11 @@
 package fr.polytech.marechal.libs;
 
-import fr.polytech.marechal.libs.database.query.results.QueryResultList;
-
-import java.sql.SQLException;
-
 /**
  * @author Robin
  * @date 14/06/2017
  */
 public class Helpers
 {
-    public static int numbersOfResultFromQuery (QueryResultList qrl) throws SQLException
-    {
-        return qrl.size();
-    }
-
     public static String snakeCaseToCamelCase (String s)
     {
         String res = "";

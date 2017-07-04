@@ -3,10 +3,11 @@ package fr.polytech.marechal.models;
 import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
-import fr.polytech.marechal.models.managers.ProductsManager;
 import fr.polytech.marechal.models.managers.ProductRestockingsManager;
+import fr.polytech.marechal.models.managers.ProductsManager;
 import fr.polytech.marechal.models.managers.RestockingsManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -105,15 +106,12 @@ public class ProductRestocking extends Model<ProductRestocking>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(productId < 1 || restockingId < 1)
+            return false;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -141,7 +139,12 @@ public class ProductRestocking extends Model<ProductRestocking>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("product_id", productId);
+        map.put("restocking_id", restockingId);
+        map.put("quantity", quantity);
+
+        return map;
     }
 
     @Override

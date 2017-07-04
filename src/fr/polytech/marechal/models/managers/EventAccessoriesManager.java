@@ -1,7 +1,9 @@
 package fr.polytech.marechal.models.managers;
 
 import configs.ApiConfig;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import fr.polytech.marechal.models.Event;
 import fr.polytech.marechal.models.EventAccessory;
 
 /**
@@ -21,4 +23,15 @@ public class EventAccessoriesManager extends ModelManager<EventAccessory>
     {
         return EventAccessory.class;
     }
+
+    public Event getEvent (int eventAccessoryId)
+    {
+        return getEvent(eventAccessoryId, new UrlParametersMap());
+    }
+
+    public Event getEvent (int eventAccessoryId, UrlParametersMap parameters)
+    {
+        return null;
+    }
+
 }

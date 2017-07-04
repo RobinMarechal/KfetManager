@@ -5,10 +5,10 @@ import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
 import fr.polytech.marechal.models.managers.CategoriesManager;
-import fr.polytech.marechal.models.managers.MenusManager;
-import fr.polytech.marechal.models.managers.ProductsManager;
-import fr.polytech.marechal.models.managers.SubcategoriesManager;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -37,7 +37,7 @@ public class Category extends Model<Category>
 
     public Category loadSubcategories (UrlParametersMap parameters)
     {
-        subcategories = new SubcategoriesManager().ofUrl("categories/" + getId() + "/subcategories", parameters);
+        subcategories = new CategoriesManager().getSubcategories(getId(), parameters);
         return this;
     }
 
@@ -49,7 +49,7 @@ public class Category extends Model<Category>
     public Category loadMenus (UrlParametersMap parameters)
     {
         menus = new RelationsMap<>();
-        menus.addModels(new MenusManager().ofUrl("categories/" + getId() + "/menus", parameters));
+        menus.addModels(new CategoriesManager().getMenus(getId(), parameters));
         return this;
     }
 
@@ -60,7 +60,7 @@ public class Category extends Model<Category>
 
     public Category loadProducts (UrlParametersMap parameters)
     {
-        products = new ProductsManager().ofUrl("categories/" + getId() + "/products", parameters);
+        products = new CategoriesManager().getProducts(getId(), parameters);
         return this;
     }
 
@@ -99,11 +99,13 @@ public class Category extends Model<Category>
 
     public void setSubcategories (ArrayList<Subcategory> subcategories)
     {
-        this.subcategories = subcategories;
+        subcategories = new ArrayList<>();
+        subcategories.forEach(subcategory -> addSubcategory(subcategory));
     }
 
     public void addSubcategory (Subcategory subcategory)
     {
+        subcategory.setCategoryId(getId());
         this.subcategories.add(subcategory);
     }
 
@@ -117,7 +119,7 @@ public class Category extends Model<Category>
         this.menus = menus;
     }
 
-    public void addMenu (Menu menu, CategoryMenu pivot)
+    public void addMenu (@NotNull Menu menu, @Nullable CategoryMenu pivot)
     {
         this.menus.put(menu, pivot);
     }
@@ -147,27 +149,51 @@ public class Category extends Model<Category>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        if (getId() < 1)
+        boolean success = saveWithoutRelations();
+
+        // we save each subcategory
+        for (Subcategory s : subcategories)
         {
-            return false;
+            s.setCategoryId(getId());
+            success = (s.save() && success);
         }
 
-        return (new CategoriesManager().find(getId())) != null;
-    }
+        // for each menus associated
+        for (RelationsMap.Pair<Menu, CategoryMenu> e : menus.pairList())
+        {
+            // we get the menu instance and the relation's pivot
+            Menu m = e.getModel();
+            CategoryMenu p = e.getPivot();
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+            // if the menu isn't saved in db, we save it
+            if (m.getId() < 1)
+            {
+                success = (m.save() && success);
+            }
+
+            // If the pivot is null, we create it
+            if (p == null)
+            {
+                p = new CategoryMenu();
+            }
+
+            // We set the right category's id and menu's id
+            p.setCategoryId(getId());
+            p.setMenuId(m.getId());
+
+            // then we save the pivot
+            success = (p.saveWithoutRelations() && success);
+        }
+
+        return success;
     }
 
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("id", getId());
+        HashMap<String, Object> map = super.toHashMap();
         map.put("name", name);
 
         return map;
@@ -176,7 +202,7 @@ public class Category extends Model<Category>
     @Override
     public String toString ()
     {
-        return "Category{" + "id=" + getId() + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", "
+        return "Category{" + "id=" + getId() + ", name='" + name + '\'' + ", subcategories=" + subcategories + ", menus=" + menus + ", " 
                 + "products=" + products + '}';
     }
 }

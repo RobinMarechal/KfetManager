@@ -8,6 +8,7 @@ import fr.polytech.marechal.models.managers.ProductsManager;
 import fr.polytech.marechal.models.managers.RestockingsManager;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,15 +101,38 @@ public class Restocking extends Model<Restocking>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        boolean success = saveWithoutRelations();
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        // for each associated model
+        for (RelationsMap.Pair<Product, ProductRestocking> e : products.pairList())
+        {
+            // we get the model's instance and the relation's pivot
+            Product m = e.getModel();
+            ProductRestocking p = e.getPivot();
+
+            // if the model isn't saved in db, we save it
+            if (m.getId() < 1)
+            {
+                success &= m.save();
+            }
+
+            // If the pivot is null, we create it
+            if (p == null)
+            {
+                p = new ProductRestocking();
+            }
+
+            // We set the right category's id and menu's id
+            p.setRestockingId(getId());
+            p.setProductId(m.getId());
+
+            // then we save the pivot
+            success &= p.saveWithoutRelations();
+        }
+
+        return success;
     }
 
     @Override
@@ -135,7 +159,12 @@ public class Restocking extends Model<Restocking>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("date", date);
+        map.put("description", description);
+        map.put("cost", cost);
+
+        return map;
     }
 
     @Override

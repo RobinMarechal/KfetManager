@@ -5,6 +5,7 @@ import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.KfetManager;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -93,13 +94,13 @@ public class Kfet extends Model<Kfet>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save ()
     {
         return false;
     }
 
     @Override
-    public boolean save ()
+    public boolean saveWithoutRelations () throws IOException
     {
         return false;
     }

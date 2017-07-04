@@ -4,9 +4,9 @@ import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.CustomersManager;
-import fr.polytech.marechal.models.managers.OrdersManager;
 import fr.polytech.marechal.models.managers.StaffsManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -101,14 +101,14 @@ public class Customer extends Model<Customer>
         return this;
     }
 
-    public Customer loadOders ()
+    public Customer loadOrders ()
     {
-        return loadOders(new UrlParametersMap());
+        return loadOrders(new UrlParametersMap());
     }
 
-    public Customer loadOders (UrlParametersMap parameters)
+    public Customer loadOrders (UrlParametersMap parameters)
     {
-        orders = new OrdersManager().ofUrl("customers/" + getId() + "/orders", parameters);
+        orders = new CustomersManager().getOrders(getId(), parameters);
         return this;
     }
 
@@ -125,15 +125,22 @@ public class Customer extends Model<Customer>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        boolean success = saveWithoutRelations();
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        for (Order order : orders)
+        {
+            order.setCustomerId(getId());
+            success &= order.save();
+        }
+
+        if(staff != null)
+        {
+            success &= staff.save();
+        }
+
+        return success;
     }
 
     @Override
@@ -148,7 +155,7 @@ public class Customer extends Model<Customer>
     public Customer loadAll (UrlParametersMap parameters)
     {
         loadStaff(parameters);
-        loadOders(parameters);
+        loadOrders(parameters);
         return this;
     }
 
@@ -161,7 +168,13 @@ public class Customer extends Model<Customer>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("firstname", firstname);
+        map.put("lastname", lastname);
+        map.put("staff_id", staffId);
+        map.put("balance", balance);
+
+        return map;
     }
 
     @Override

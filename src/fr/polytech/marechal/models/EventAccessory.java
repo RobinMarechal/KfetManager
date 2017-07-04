@@ -6,6 +6,7 @@ import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.EventAccessoriesManager;
 import fr.polytech.marechal.models.managers.EventsManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -93,15 +94,12 @@ public class EventAccessory extends Model<EventAccessory>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(eventId < 1)
+            return false;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -127,7 +125,13 @@ public class EventAccessory extends Model<EventAccessory>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("event_id", eventId);
+        map.put("name", name);
+        map.put("cost", cost);
+        map.put("quantity", quantity);
+
+        return map;
     }
 
     @Override

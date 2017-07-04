@@ -7,6 +7,7 @@ import fr.polytech.marechal.models.managers.CategoriesManager;
 import fr.polytech.marechal.models.managers.CategoryMenusManager;
 import fr.polytech.marechal.models.managers.MenusManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -94,15 +95,12 @@ public class CategoryMenu extends Model<CategoryMenu>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(menuId < 1 || categoryId < 1)
+            return false;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -130,7 +128,11 @@ public class CategoryMenu extends Model<CategoryMenu>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("menu_id", menuId);
+        map.put("category_id", categoryId);
+
+        return map;
     }
 
     @Override

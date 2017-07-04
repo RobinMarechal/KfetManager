@@ -5,6 +5,7 @@ import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.MoneyAddingsManager;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -71,15 +72,9 @@ public class MoneyAdding extends Model<MoneyAdding>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
-
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -103,7 +98,13 @@ public class MoneyAdding extends Model<MoneyAdding>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("date", date);
+        map.put("description", description);
+        map.put("amount", amount);
+        map.put("reason", reason);
+
+        return map;
     }
 
     @Override

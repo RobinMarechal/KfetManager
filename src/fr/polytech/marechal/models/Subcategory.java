@@ -7,6 +7,7 @@ import fr.polytech.marechal.models.managers.CategoriesManager;
 import fr.polytech.marechal.models.managers.ProductsManager;
 import fr.polytech.marechal.models.managers.SubcategoriesManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -116,15 +117,20 @@ public class Subcategory extends Model<Subcategory>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        if(categoryId < 1)
+            return false;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        boolean success = saveWithoutRelations();
+
+        for (Product p : products)
+        {
+            p.setSubcategoryId(getId());
+            success &= p.save();
+        }
+
+        return success;
     }
 
     @Override
@@ -152,7 +158,12 @@ public class Subcategory extends Model<Subcategory>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("category_id", categoryId);
+        map.put("name", name);
+        map.put("price", price);
+
+        return map;
     }
 
     @Override

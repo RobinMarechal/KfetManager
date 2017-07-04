@@ -30,11 +30,6 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
         this.id = id;
     }
 
-
-    protected abstract void recopy (T obj);
-
-    // ABSTRACT
-
     public boolean existsInDatabase ()
     {
         if (getId() < 1)
@@ -47,7 +42,7 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
         return m != null;
     }
 
-    public abstract boolean save ();
+
 
     public boolean saveWithoutRelations () throws IOException
     {
@@ -74,11 +69,32 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
         return getManagerInstance().delete(this);
     }
 
+    public HashMap<String, Object> toHashMap ()
+    {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("id", getId());
+
+        return map;
+    }
+
+
+    // ABSTRACT
+
+
+    /**
+     *
+     * @return - A real number bewteen 0 and 1.<br> &nbsp; The proportion of models that have been successfuly saved. <br> &nbsp; 1 means
+     * that everything
+     * worked well
+     * @throws IOException
+     */
+    public abstract boolean save () throws IOException;
+
+    protected abstract void recopy (T obj);
+
     public abstract T loadAll ();
 
     public abstract T loadAll (UrlParametersMap parameters);
 
     public abstract ModelManager<T> getManagerInstance ();
-
-    public abstract HashMap<String, Object> toHashMap ();
 }

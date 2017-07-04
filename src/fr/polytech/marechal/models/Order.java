@@ -6,6 +6,7 @@ import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
 import fr.polytech.marechal.models.managers.*;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,6 +103,16 @@ public class Order extends Model<Order>
         this.updatedAt = updatedAt;
     }
 
+    public int getMenuId ()
+    {
+        return menuId;
+    }
+
+    public void setMenuId (int menuId)
+    {
+        this.menuId = menuId;
+    }
+
     public Menu getMenu ()
     {
         return menu;
@@ -166,15 +177,17 @@ public class Order extends Model<Order>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        boolean success = saveWithoutRelations();
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        for (OrderProduct op : orderProducts)
+        {
+            op.setOrderId(getId());
+            success &= op.save();
+        }
+
+        return success;
     }
 
     @Override
@@ -198,13 +211,17 @@ public class Order extends Model<Order>
     @Override
     public ModelManager<Order> getManagerInstance ()
     {
-        return null;
+        return new OrdersManager();
     }
 
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("customer_id", customerId);
+        map.put("menu_id", menuId);
+
+        return map;
     }
 
     @Override

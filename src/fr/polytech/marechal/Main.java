@@ -32,7 +32,22 @@ public class Main
         //        testLoad();
 //        testCreateUpdateDelete();
         
-        System.out.println(new CategoriesManager().allWithRelations());
+//        System.out.println(new CategoriesManager().allWithRelations());
+        testSave();
+    }
+
+    private static void testSave ()
+    {
+        Category c = new CategoriesManager().find(19, new UrlParametersMap().withAllRelations());
+
+        try
+        {
+            c.save();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private static void testCreateUpdateDelete ()

@@ -8,6 +8,7 @@ import fr.polytech.marechal.models.managers.CategoriesManager;
 import fr.polytech.marechal.models.managers.MenusManager;
 import fr.polytech.marechal.models.managers.OrdersManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -119,17 +120,46 @@ public class Menu extends Model<Menu>
         this.orders = obj.orders;
     }
 
-    @Override
-    public boolean existsInDatabase ()
-    {
-        return false;
-    }
-
 
     @Override
-    public boolean save ()
+    public boolean save () throws IOException
     {
-        return false;
+        boolean success = saveWithoutRelations();
+
+        for (Order o : orders)
+        {
+            o.setMenuId(getId());
+            success &= o.save();
+        }
+
+        // for each associated category
+        for (RelationsMap.Pair<Category, CategoryMenu> e : categories.pairList())
+        {
+            // we get the category's instance and the relation's pivot
+            Category m = e.getModel();
+            CategoryMenu p = e.getPivot();
+
+            // if the category isn't saved in db, we save it
+            if (m.getId() < 1)
+            {
+                success = (m.save() && success);
+            }
+
+            // If the pivot is null, we create it
+            if (p == null)
+            {
+                p = new CategoryMenu();
+            }
+
+            // We set the right category's id and menu's id
+            p.setMenuId(getId());
+            p.setCategoryId(m.getId());
+
+            // then we save the pivot
+            success = (p.saveWithoutRelations() && success);
+        }
+
+        return success;
     }
 
     @Override
@@ -157,7 +187,12 @@ public class Menu extends Model<Menu>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("price", price);
+        map.put("description", description);
+        map.put("name", name);
+
+        return map;
     }
 
     @Override

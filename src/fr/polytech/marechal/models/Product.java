@@ -7,6 +7,7 @@ import fr.polytech.marechal.libs.mvc.models.RelationsMap;
 import fr.polytech.marechal.models.managers.*;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -248,15 +249,50 @@ public class Product extends Model<Product>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        boolean success = true;
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        if (subcategoryId < 1 && subcategory == null)
+        {
+            return false;
+        }
+        else if (subcategoryId < 1)
+        {
+            success &= subcategory.save();
+            subcategoryId = subcategory.getId();
+        }
+
+        success &= saveWithoutRelations();
+
+        // for each associated model
+        for (RelationsMap.Pair<Restocking, ProductRestocking> e : restockings.pairList())
+        {
+            // we get the model's instance and the relation's pivot
+            Restocking m = e.getModel();
+            ProductRestocking p = e.getPivot();
+
+            // if the model isn't saved in db, we save it
+            if (m.getId() < 1)
+            {
+                success = (m.save() && success);
+            }
+
+            // If the pivot is null, we create it
+            if (p == null)
+            {
+                p = new ProductRestocking();
+            }
+
+            // We set the right category's id and menu's id
+            p.setProductId(getId());
+            p.setRestockingId(m.getId());
+
+            // then we save the pivot
+            success = (p.saveWithoutRelations() && success);
+        }
+
+        return success;
     }
 
     @Override
@@ -287,14 +323,21 @@ public class Product extends Model<Product>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("name", name);
+        map.put("description", description);
+        map.put("price", price);
+        map.put("quantity", quantity);
+        map.put("subcategory_id", subcategoryId);
+
+        return map;
     }
 
     @Override
     public String toString ()
     {
         return "Product{" + "id=" + getId() + ", name='" + name + '\'' + ", description='" + description + '\'' + ", price=" + price + "," +
-                "" + "" + "" + "" + " " + "quantity=" + quantity + ", subcategoryId=" + subcategoryId + ", subcategory=" + subcategory +
-                ", " + "category=" + category + ", " + "orderProducts=" + orders + '}';
+                "" + "" + "" + "" + "" + " " + "quantity=" + quantity + ", subcategoryId=" + subcategoryId + ", subcategory=" +
+                subcategory + ", " + "category=" + category + ", " + "orderProducts=" + orders + '}';
     }
 }

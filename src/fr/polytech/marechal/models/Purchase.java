@@ -5,6 +5,7 @@ import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.models.managers.PurchasesManager;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -67,15 +68,9 @@ public class Purchase extends Model<Purchase>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
-
-    @Override
-    public boolean save ()
-    {
-        return false;
+        return saveWithoutRelations();
     }
 
     @Override
@@ -99,7 +94,13 @@ public class Purchase extends Model<Purchase>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("cost", cost);
+        map.put("description", description);
+        map.put("date", date);
+        map.put("quantity", quantity);
+
+        return map;
     }
 
     @Override

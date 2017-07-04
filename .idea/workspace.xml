@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" description="public boolean existsInDatabase ()" line="149" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="667e9390-7fbe-4b2f-a47c-beb5335726c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/ProductRestockingFactory.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/Main.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" />
@@ -36,23 +24,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CategoryFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CategoryMenuFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CustomerFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventAccessoryFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventProductFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/KfetFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/KfetManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/MenuFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/MoneyAddingFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MoneyAddingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/OrderFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/OrderProductFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/ProductFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/PurchaseFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/PurchasesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/RestockingFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/StaffFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/SubcategoryFactory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java" />
     </list>
     <ignored path="application.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,31 +58,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ModelManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="284" column="63" lean-forward="true" selection-start-line="284" selection-start-column="63" selection-end-line="284" selection-end-column="63" />
-              <folding>
-                <element signature="method#ofUrl#1;class#ModelManager#0" expanded="false" />
-                <element signature="e#12097#12098#0" expanded="true" />
-                <element signature="e#12166#12167#0" expanded="true" />
-                <element signature="method#getModelTableName#0;class#ModelManager#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-203">
-              <caret line="49" column="19" lean-forward="false" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#518#519#0" expanded="true" />
-                <element signature="e#543#544#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="346">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,87 +71,88 @@
       <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding>
-                <element signature="e#2519#2520#0" expanded="true" />
-                <element signature="e#3892#3893#0" expanded="true" />
-                <element signature="e#3920#3921#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/Api.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="157">
+              <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiQuery.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java">
+      <file leaf-file-name="ProductsManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="106">
+              <caret line="13" column="54" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoriesManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java">
+      <file leaf-file-name="PurchasesManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/PurchasesManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <element signature="e#336#337#0" expanded="true" />
-                <element signature="e#395#396#0" expanded="true" />
-              </folding>
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/CategoryMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1869">
-              <caret line="138" column="8" lean-forward="false" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="20" />
+            <state relative-caret-position="220">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Helpers.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java">
+      <file leaf-file-name="RestockingsManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="840">
+              <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductRestockingsManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java">
+      <file leaf-file-name="StaffsManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="630">
+              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubcategoriesManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiQueryBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subcategory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -209,6 +176,13 @@
       <find>factory</find>
       <find>getname</find>
       <find>buildFromJ</find>
+      <find>save (</find>
+      <find>loadOrders</find>
+      <find>catego</find>
+      <find>getMan</find>
+      <find>getM</find>
+      <find>getMn</find>
+      <find>getMa</find>
     </findStrings>
     <replaceStrings>
       <replace>get</replace>
@@ -229,20 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CategoryMenuFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CustomerFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventAccessoryFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/EventProductFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/KfetFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/MenuFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/MoneyAddingFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/OrderFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/OrderProductFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/ProductFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/PurchaseFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/RestockingFactory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/StaffFactory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/SubcategoryFactory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersList.java" />
         <option value="/RegExp Fragment (UrlParametersMap.java:297).regexp" />
@@ -251,35 +211,49 @@
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/database/query/builders/SelectQueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/ModelFactory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationWithPivot.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/ProductRestockingFactory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelFactory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/PurchaseManager.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/factories/CategoryManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Kfet.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Purchase.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/CategoryMenu.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Customer.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Event.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/EventAccessory.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/EventProduct.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Kfet.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Menu.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/MoneyAdding.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Order.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/OrderProduct.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Product.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/ProductRestocking.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Purchase.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/Order.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/Main.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
       </list>
     </option>
   </component>
@@ -300,7 +274,16 @@
             <id>Android &gt; Lint &gt; Correctness</id>
           </State>
           <State>
+            <id>Android &gt; Lint &gt; Performance</id>
+          </State>
+          <State>
             <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>Data flow issuesJava</id>
+          </State>
+          <State>
+            <id>Error handlingJava</id>
           </State>
           <State>
             <id>General</id>
@@ -330,10 +313,19 @@
             <id>Kotlin</id>
           </State>
           <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
             <id>Probable bugsJava</id>
           </State>
           <State>
             <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -362,6 +354,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -453,94 +446,15 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marechal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marechal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="marechal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../libs/json-simple-1.1.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -843,6 +757,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -854,7 +769,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41775456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31723237" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -862,7 +777,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2232376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2232376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.163125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -889,7 +804,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="51" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -898,84 +813,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MoneyAddingsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/database/query/builders/ConditionalQueryBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/database/query/builders/enums/OrderBy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/Object.java" />
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/OrderBy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/database/query/builders/enums/Functions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/database/query/builders/SelectQueryBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -989,252 +826,11 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/HashMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="382" column="32" lean-forward="true" selection-start-line="382" selection-start-column="32" selection-end-line="382" selection-end-column="32" />
-          <folding>
-            <element signature="e#15039#15040#0" expanded="true" />
-            <element signature="e#15110#15111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/PurchasesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#506#507#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#428#429#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2184">
-          <caret line="169" column="8" lean-forward="false" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="20" />
-          <folding>
-            <element signature="e#3266#3267#0" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="183" column="8" lean-forward="false" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/EventAccessory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="135" column="8" lean-forward="false" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="20" />
-          <folding>
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2453#2454#0" expanded="true" />
-            <element signature="e#2522#2523#0" expanded="true" />
-            <element signature="e#2549#2550#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/EventProduct.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="197" column="8" lean-forward="false" selection-start-line="197" selection-start-column="8" selection-end-line="197" selection-end-column="20" />
-          <folding>
-            <element signature="e#3710#3711#0" expanded="true" />
-            <element signature="e#3759#3760#0" expanded="true" />
-            <element signature="e#3828#3829#0" expanded="true" />
-            <element signature="e#3855#3856#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="165" column="8" lean-forward="false" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="20" />
-          <folding>
-            <element signature="e#3422#3423#0" expanded="true" />
-            <element signature="e#3463#3464#0" expanded="true" />
-            <element signature="e#3532#3533#0" expanded="true" />
-            <element signature="e#3559#3560#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/MoneyAdding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="e#1796#1797#0" expanded="true" />
-            <element signature="e#1844#1845#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="206" column="8" lean-forward="false" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="20" />
-          <folding>
-            <element signature="e#4563#4564#0" expanded="true" />
-            <element signature="e#4590#4591#0" expanded="true" />
-            <element signature="e#4659#4660#0" expanded="true" />
-            <element signature="e#4686#4687#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/OrderProduct.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="20" />
-          <folding>
-            <element signature="e#2835#2836#0" expanded="true" />
-            <element signature="e#2884#2885#0" expanded="true" />
-            <element signature="e#2953#2954#0" expanded="true" />
-            <element signature="e#2980#2981#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="295" column="8" lean-forward="false" selection-start-line="295" selection-start-column="8" selection-end-line="295" selection-end-column="20" />
-          <folding>
-            <element signature="e#6857#6858#0" expanded="true" />
-            <element signature="e#6901#6902#0" expanded="true" />
-            <element signature="e#6970#6971#0" expanded="true" />
-            <element signature="e#6997#6998#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/ProductRestocking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="143" column="8" lean-forward="false" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="20" />
-          <folding>
-            <element signature="e#3020#3021#0" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3143#3144#0" expanded="true" />
-            <element signature="e#3170#3171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="20" />
-          <folding>
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="137" column="8" lean-forward="false" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="20" />
-          <folding>
-            <element signature="e#3011#3012#0" expanded="true" />
-            <element signature="e#3058#3059#0" expanded="true" />
-            <element signature="e#3127#3128#0" expanded="true" />
-            <element signature="e#3154#3155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="137" column="8" lean-forward="false" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="20" />
-          <folding>
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2610#2611#0" expanded="true" />
-            <element signature="e#2679#2680#0" expanded="true" />
-            <element signature="e#2706#2707#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="20" />
-          <folding>
-            <element signature="e#3224#3225#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3342#3343#0" expanded="true" />
-            <element signature="e#3369#3370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Kfet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="129" column="8" lean-forward="false" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="20" />
-          <folding>
-            <element signature="e#2469#2470#0" expanded="true" />
-            <element signature="e#2496#2497#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#506#507#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding>
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1251,18 +847,7 @@
         <state relative-caret-position="252">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#226#227#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding>
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1631#1632#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1271,9 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#534#535#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1282,96 +864,46 @@
         <state relative-caret-position="273">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/Api.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="1281">
           <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
+        <state relative-caret-position="483">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/CategoryMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1869">
-          <caret line="138" column="8" lean-forward="false" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
-            <element signature="e#2519#2520#0" expanded="true" />
-            <element signature="e#3892#3893#0" expanded="true" />
-            <element signature="e#3920#3921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-203">
-          <caret line="49" column="19" lean-forward="false" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="34" column="43" lean-forward="false" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#728#729#0" expanded="false" />
+            <element signature="e#788#789#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="284" column="63" lean-forward="true" selection-start-line="284" selection-start-column="63" selection-end-line="284" selection-end-column="63" />
+        <state relative-caret-position="4683">
+          <caret line="284" column="63" lean-forward="false" selection-start-line="284" selection-start-column="63" selection-end-line="284" selection-end-column="63" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1474#1475#0" expanded="false" />
+            <element signature="e#1529#1530#0" expanded="false" />
+            <element signature="e#2469#2470#0" expanded="false" />
+            <element signature="e#2519#2520#0" expanded="false" />
+            <element signature="e#2569#2570#0" expanded="false" />
+            <element signature="e#2626#2627#0" expanded="false" />
             <element signature="method#ofUrl#1;class#ModelManager#0" expanded="false" />
-            <element signature="e#12097#12098#0" expanded="true" />
-            <element signature="e#12166#12167#0" expanded="true" />
             <element signature="method#getModelTableName#0;class#ModelManager#0" expanded="false" />
           </folding>
         </state>
@@ -1379,8 +911,323 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="232">
+          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/RelationsMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="390" column="36" lean-forward="false" selection-start-line="390" selection-start-column="36" selection-end-line="390" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="162" column="40" lean-forward="false" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="175" column="35" lean-forward="false" selection-start-line="175" selection-start-column="31" selection-end-line="175" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/EventAccessory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="119" column="44" lean-forward="false" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/EventProduct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="181" column="43" lean-forward="false" selection-start-line="181" selection-start-column="38" selection-end-line="181" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Kfet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-314">
+          <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="98" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="181" column="35" lean-forward="false" selection-start-line="181" selection-start-column="30" selection-end-line="181" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/MoneyAdding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="213" column="34" lean-forward="false" selection-start-line="213" selection-start-column="34" selection-end-line="213" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/OrderProduct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-83">
+          <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/ProductRestocking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-440">
+          <caret line="107" column="4" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="100" column="38" lean-forward="false" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="164" column="30" lean-forward="false" selection-start-line="164" selection-start-column="30" selection-end-line="164" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/CategoryMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="987">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding>
+            <element signature="method#getMenu#0;class#CategoryMenusManager#0" expanded="false" />
+            <element signature="method#getCategory#0;class#CategoryMenusManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/KfetManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MoneyAddingsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="18" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="13" column="54" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/PurchasesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding />
         </state>
       </provider>

@@ -330,7 +330,7 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
     @Override
     public String toString ()
     {
-        return "RelationWithPivot{" + "pairs=" + pairs + '}';
+        return "RelationWithPivot{" + "pairList=" + pairs + '}';
     }
 
     /**
@@ -386,6 +386,11 @@ public class RelationsMap<M extends Model<M>, P extends Model<P>> implements Map
     public void addModels (ArrayList<M> models)
     {
         models.forEach(m -> pairs.add(new Pair<M, P>(m, null)));
+    }
+
+    public List<Pair<M, P>> pairList ()
+    {
+        return pairs;
     }
 
 

@@ -4,11 +4,9 @@ import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
 import fr.polytech.marechal.libs.mvc.models.RelationsMap;
-import fr.polytech.marechal.models.managers.EventAccessoriesManager;
-import fr.polytech.marechal.models.managers.EventsManager;
-import fr.polytech.marechal.models.managers.EventProductsManager;
-import fr.polytech.marechal.models.managers.ProductsManager;
+import fr.polytech.marechal.models.managers.*;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -138,15 +136,23 @@ public class Event extends Model<Event>
     }
 
     @Override
-    public boolean existsInDatabase ()
+    public boolean save () throws IOException
     {
-        return false;
-    }
+        boolean success = saveWithoutRelations();
 
-    @Override
-    public boolean save ()
-    {
-        return false;
+        for (EventAccessory ea : eventAccessories)
+        {
+            ea.setEventId(getId());
+            success &= ea.save();
+        }
+
+        for (EventProduct ep : eventProducts)
+        {
+            ep.setEventId(getId());
+            success &= ep.save();
+        }
+
+        return success;
     }
 
     @Override
@@ -175,7 +181,11 @@ public class Event extends Model<Event>
     @Override
     public HashMap<String, Object> toHashMap ()
     {
-        return null;
+        HashMap<String, Object> map = super.toHashMap();
+        map.put("date", date);
+        map.put("description", description);
+
+        return map;
     }
 
     @Override
