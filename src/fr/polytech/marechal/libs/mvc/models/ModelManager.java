@@ -1,6 +1,6 @@
 package fr.polytech.marechal.libs.mvc.models;
 
-import configs.ApiConfig;
+import fr.polytech.marechal.configs.ApiConfig;
 import fr.polytech.marechal.libs.Helpers;
 import fr.polytech.marechal.libs.api.*;
 import org.jetbrains.annotations.NotNull;
@@ -160,7 +160,7 @@ public abstract class ModelManager<T extends Model>
                 continue;
             }
 
-            String camelCaseKey = Helpers.snakeCaseToCamelCase(key);
+            String camelCaseKey = Helpers.camelCase(key);
             Field  field        = clazz.getDeclaredField(camelCaseKey);
 
             Method setter;

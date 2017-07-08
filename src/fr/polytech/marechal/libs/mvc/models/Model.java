@@ -44,7 +44,7 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
 
 
 
-    public boolean saveWithoutRelations () throws IOException
+    public boolean save () throws IOException
     {
         Model tmp;
 
@@ -88,7 +88,7 @@ public abstract class Model<T extends Model> implements Comparable<Model<T>>
      * worked well
      * @throws IOException
      */
-    public abstract boolean save () throws IOException;
+    public abstract boolean saveAll () throws IOException;
 
     protected abstract void recopy (T obj);
 
