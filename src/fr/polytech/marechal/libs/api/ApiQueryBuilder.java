@@ -1,29 +1,36 @@
 package fr.polytech.marechal.libs.api;
 
+import fr.polytech.marechal.libs.mvc.models.Model;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author Robin
  * @date 22/06/2017
  */
-public class ApiQueryBuilder
+public class ApiQueryBuilder<T extends Model>
 {
     private String url;
-    private int limit = -1;
-    private int offset = -1;
-    private String orderBy;
-    private String order;
-    private List<String> relations = new ArrayList<>();
+
+    private ModelManager<T> modelManager;
 
     private ApiQuery query;
 
     private Http httpMethod;
     private HashMap<String, Object> data;
+    private UrlParametersMap urlParams;
+
+    public ApiQueryBuilder (ModelManager modelManager)
+    {
+        this(modelManager.getBaseUrl());
+        this.modelManager = modelManager;
+    }
 
     public ApiQueryBuilder (String url)
     {
@@ -36,17 +43,11 @@ public class ApiQueryBuilder
         this.url = url;
     }
 
-    public static <T extends ModelManager> ApiQueryBuilder forModelManager (T modelFactory)
+    public ApiQueryBuilder setModelManager (ModelManager<T> modelManager)
     {
-        return forModelManager(modelFactory, Http.GET);
+        this.modelManager = modelManager;
+        return this;
     }
-
-    public static <T extends ModelManager> ApiQueryBuilder forModelManager (T modelFactory, Http httpMethod)
-    {
-        String url = modelFactory.getBaseUrl();
-        return create(url, httpMethod);
-    }
-
 
     public static ApiQueryBuilder create (String url)
     {
@@ -63,9 +64,11 @@ public class ApiQueryBuilder
         return atUrl(url, Http.GET);
     }
 
-    public static ApiQueryBuilder atUrl (String url, Http httpMethod)
+    public ApiQueryBuilder atUrl (String url, Http httpMethod)
     {
-        return new ApiQueryBuilder(url, httpMethod);
+        this.url = url;
+        this.httpMethod = httpMethod;
+        return this;
     }
 
     public ApiQueryBuilder setHttpMethod (Http method)
@@ -80,105 +83,11 @@ public class ApiQueryBuilder
         return this;
     }
 
-    public ApiQueryBuilder limit (int limit)
-    {
-        return limit(limit, 0);
-    }
-
-    public ApiQueryBuilder limit (int limit, int offset)
-    {
-        this.limit = limit;
-        this.offset = offset;
-        return this;
-    }
-
-    public ApiQueryBuilder orderBy (String field)
-    {
-        return orderBy(field, "ASC");
-    }
-
-    public ApiQueryBuilder orderBy (String field, String order)
-    {
-        this.orderBy = field;
-        this.order = order;
-        return this;
-    }
-
-    @SafeVarargs
-    public final ApiQueryBuilder with (String... relations) throws ReflectiveOperationException
-    {
-        return relations(relations);
-    }
-
-    @SafeVarargs
-    public final ApiQueryBuilder relations (String... relations) throws ReflectiveOperationException
-    {
-        for (String r : relations)
-        {
-            if (!this.relations.contains(r))
-            {
-                this.relations.add(r);
-            }
-        }
-
-        return this;
-    }
-
     public ApiQuery buildQuery ()
     {
-        String url = this.url;
-
-        if (url.charAt(url.length() - 1) == '/')
-        {
-            url = url.substring(0, url.length() - 1);
-        }
-
-        if (orderBy == null && limit == -1 && relations.isEmpty())
-        {
-            this.query = new ApiQuery(url, httpMethod, data);
-            return this.query;
-        }
-
-        url += "?";
-
-        if (orderBy != null)
-        {
-            url += "orderby=" + orderBy + "&";
-            if (order != null)
-            {
-                url += "order=" + order + "&";
-            }
-        }
-
-        if (limit != -1)
-        {
-            url += "limit=" + limit + "&";
-            if (offset != -1)
-            {
-                url += "offset=" + offset + "&";
-            }
-        }
-
-        if (!relations.isEmpty())
-        {
-            String with = "with=";
-            for (String r : relations)
-            {
-                with += r + ",";
-            }
-
-            with = with.substring(0, with.length() - 1);
-            url += with;
-        }
-
-
-        if (url.charAt(url.length() - 1) == '&')
-        {
-            url = url.substring(0, url.length() - 1);
-        }
-
         this.query = new ApiQuery(url, httpMethod, data);
-        return this.query;
+        query.setUrlParams(urlParams);
+        return query;
     }
 
     public ApiQuery getQuery ()
@@ -191,30 +100,51 @@ public class ApiQueryBuilder
         return query;
     }
 
+    public ArrayList<T> executeQuery ()
+    {
+        try
+        {
+            JSONArray json = this.getQuery()
+                                 .execute()
+                                 .getJson();
+
+            ArrayList<T> list = new ArrayList<>();
+            for (Object obj : json)
+            {
+                try
+                {
+                    list.add(modelManager.buildFromJson(((JSONObject) obj)));
+                }
+                catch (ReflectiveOperationException e)
+                {
+                    list.add(null);
+                    e.printStackTrace();
+                }
+            }
+
+            return list;
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     @Override
     public String toString ()
     {
         return query.toString();
     }
 
-    public ApiQueryBuilder setUrlParams (UrlParametersMap m)
+    public ApiQueryBuilder setUrlParams (UrlParametersMap urlParams)
     {
-        limit = (int) m.getOrDefault("limit", -1);
-        offset = (int) m.getOrDefault("offset", -1);
-
-        orderBy = m.containsKey("orderby") ? m.get("orderby")
-                                              .toString() : null;
-        order = m.containsKey("order") ? m.getOrDefault("order", OrderBy.ASC)
-                                          .toString() : null;
-
-        if (m.containsKey("with"))
-        {
-            String with = m.get("with")
-                           .toString();
-            String[] split = with.split(",");
-            relations.addAll(Arrays.asList(split));
-        }
-
+        this.urlParams = urlParams;
         return this;
     }
 }

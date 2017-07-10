@@ -3,6 +3,7 @@ package fr.polytech.marechal.libs;
 import fr.polytech.marecal.validator.FormValidator;
 import fr.polytech.marecal.validator.InvalidationReason;
 import fr.polytech.marecal.validator.InvalidationReasonMessageMap;
+import fr.polytech.marechal.app.controllers.KfetController;
 import fr.polytech.marechal.configs.ApiConfig;
 import fr.polytech.marechal.configs.Settings;
 import fr.polytech.marechal.libs.ui.template.Template;
@@ -14,7 +15,7 @@ import javafx.stage.Stage;
  */
 public class App
 {
-    public static void loadConfigs()
+    public static void loadConfigs ()
     {
         ApiConfig.load();
         Settings.load();
@@ -24,11 +25,20 @@ public class App
     {
         App.loadConfigs();
 
-        window.setScene(Template.getInstance());
+        //      95
+        //  3       3
+        //      3
         window.setResizable(false);
-        window.show();
         window.setTitle("KfetManager");
         window.setOnCloseRequest(event -> App.closeApplication());
+        window.setScene(Template.getInstance());
+        window.show();
+
+        window.centerOnScreen();
+
+        new KfetController().home();
+        Template.getInstance()
+                .selectFirstNavbarItem();
 
         InvalidationReasonMessageMap reasons = FormValidator.getInvalidationReasonMessageMap();
         reasons.setMessage(InvalidationReason.UNKNOWN, "Erreur inconnue");

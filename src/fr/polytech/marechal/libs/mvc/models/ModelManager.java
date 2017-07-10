@@ -24,6 +24,27 @@ import java.util.ArrayList;
  */
 public abstract class ModelManager<T extends Model>
 {
+    public T getLast ()
+    {
+        return getLast(new UrlParametersMap());
+    }
+
+    public T getLast (@NotNull UrlParametersMap parametersMap)
+    {
+        parametersMap = parametersMap.setOrderBy("id", OrderBy.DESC)
+                                     .setLimit(1);
+
+        ArrayList<T> list = new ApiQueryBuilder<T>(this).setUrlParams(parametersMap)
+                                                        .executeQuery();
+
+        if (list == null || list.isEmpty())
+        {
+            return null;
+        }
+
+        return list.get(0);
+    }
+
     public T find (int id, @NotNull UrlParametersMap parametersMap)
     {
         try
@@ -123,7 +144,7 @@ public abstract class ModelManager<T extends Model>
                 {
                     list.add(buildFromJson(((JSONObject) obj)));
                 }
-                catch(ReflectiveOperationException e)
+                catch (ReflectiveOperationException e)
                 {
                     list.add(null);
                     e.printStackTrace();
@@ -235,7 +256,7 @@ public abstract class ModelManager<T extends Model>
             else if (fieldClassName.equals(LocalTime.class.getName()))
             {
                 String    strTime = value.toString();
-                LocalTime time    = LocalTime.parse(strTime, DateTimeFormatter.ofPattern("HH:mm"));
+                LocalTime time    = LocalTime.parse(strTime, DateTimeFormatter.ofPattern("HH:mm:ss"));
 
                 setter = clazz.getDeclaredMethod(setterName, LocalTime.class);
                 setter.invoke(instance, time);
@@ -243,7 +264,7 @@ public abstract class ModelManager<T extends Model>
             else if (fieldClassName.equals(LocalDateTime.class.getName()))
             {
                 String        strDateTime = value.toString();
-                LocalDateTime dateTime    = LocalDateTime.parse(strDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+                LocalDateTime dateTime    = LocalDateTime.parse(strDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
                 setter = clazz.getDeclaredMethod(setterName, LocalDateTime.class);
                 setter.invoke(instance, dateTime);
@@ -342,23 +363,23 @@ public abstract class ModelManager<T extends Model>
 
     protected abstract Class<T> getModelInstanceClass ();
 
-    public T create(Model<T> model) throws IOException
+    public T create (Model<T> model) throws IOException
     {
         try
         {
-            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl(), Http.POST)
+            ApiResponse resp = new ApiQueryBuilder(getBaseUrl(), Http.POST)
                                               .setData(model.toHashMap())
                                               .getQuery()
                                               .execute();
 
-            if(resp.getCode() >= 400)
+            if (resp.getCode() >= 400)
             {
                 return null;
             }
 
             JSONArray json = resp.getJson();
 
-            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            if (json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
             {
                 return null;
             }
@@ -374,23 +395,23 @@ public abstract class ModelManager<T extends Model>
         }
     }
 
-    public T update(Model<T> model) throws IOException
+    public T update (Model<T> model) throws IOException
     {
         try
         {
-            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl() + "/" + model.getId(), Http.PUT)
+            ApiResponse resp = new ApiQueryBuilder(getBaseUrl() + "/" + model.getId(), Http.PUT)
                                               .setData(model.toHashMap())
                                               .getQuery()
                                               .execute();
 
-            if(resp.getCode() >= 400)
+            if (resp.getCode() >= 400)
             {
                 return null;
             }
 
             JSONArray json = resp.getJson();
 
-            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            if (json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
             {
                 return null;
             }
@@ -406,22 +427,20 @@ public abstract class ModelManager<T extends Model>
         }
     }
 
-    public boolean delete(Model<T> model) throws IOException
+    public boolean delete (Model<T> model) throws IOException
     {
         try
         {
-            ApiResponse resp = ApiQueryBuilder.atUrl(getBaseUrl() + "/" + model.getId(), Http.DELETE)
-                                              .getQuery()
-                                              .execute();
-
-            if(resp.getCode() >= 400)
+            ApiResponse resp = new ApiQueryBuilder(getBaseUrl() + "/" + model.getId(), Http.DELETE).getQuery()
+                                                                                                   .execute();
+            if (resp.getCode() >= 400)
             {
                 return false;
             }
 
             JSONArray json = resp.getJson();
 
-            if(json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
+            if (json == null || json.isEmpty() || ((JSONObject) json.get(0)).isEmpty())
             {
                 return false;
             }

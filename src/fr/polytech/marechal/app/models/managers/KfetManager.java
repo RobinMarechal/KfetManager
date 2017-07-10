@@ -1,8 +1,8 @@
 package fr.polytech.marechal.app.models.managers;
 
+import fr.polytech.marechal.app.models.Kfet;
 import fr.polytech.marechal.configs.ApiConfig;
 import fr.polytech.marechal.libs.mvc.models.ModelManager;
-import fr.polytech.marechal.app.models.Kfet;
 
 /**
  * @author Robin

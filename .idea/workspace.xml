@@ -2,79 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="667e9390-7fbe-4b2f-a47c-beb5335726c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/configs/api.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/configs/configs.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/css/jbootx.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/MainJFX.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/CategoriesController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/CustomersController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/EventsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MenusController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MoneyAddingsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/OrdersController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/ProductsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/PurchasesController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/RestockingsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/StaffController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SubcategoriesController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/categories/CategoriesHome.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/ApiSettingsDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/controllers/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/views/ViewController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/Dialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItemList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetLowStocks.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetSummary.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetViewController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/LoadingWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/ViewsManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.iml" afterPath="$PROJECT_DIR$/application.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/application/configs/api.properties" afterPath="$PROJECT_DIR$/out/production/application/configs/api.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/application/configs/configs.properties" afterPath="$PROJECT_DIR$/out/production/application/configs/configs.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/configs/configs.properties" afterPath="$PROJECT_DIR$/resources/configs/configs.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml" afterPath="$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Order.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Order.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/KfetManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/KfetManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/categories/CategoriesHome.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/categories/CategoriesHome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/configs/ApiConfig.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/configs/ApiConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/Main.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Category.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Category.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/CategoryMenu.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/CategoryMenu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Customer.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Customer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Event.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Event.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/EventAccessory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/EventAccessory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/EventProduct.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/EventProduct.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Kfet.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Kfet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Menu.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Menu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/MoneyAdding.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/MoneyAdding.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Order.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Order.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/OrderProduct.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/OrderProduct.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Product.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Product.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/ProductRestocking.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/ProductRestocking.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Purchase.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Purchase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Restocking.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Restocking.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Staff.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Staff.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/Subcategory.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Subcategory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/CategoriesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CategoryMenusManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/CategoryMenusManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/CustomersManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/CustomersManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventAccessoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/EventAccessoriesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/EventProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/EventsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/EventsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/KfetManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/KfetManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MenusManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/MenusManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/MoneyAddingsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/MoneyAddingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrderProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/OrderProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/OrdersManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/OrdersManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductRestockingsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/ProductRestockingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/ProductsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/ProductsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/PurchasesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/PurchasesManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/RestockingsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/RestockingsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/StaffsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/StaffsManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/models/managers/SubcategoriesManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/SubcategoriesManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/views/ViewController.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/views/ViewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java" afterPath="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/DialogsManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,115 +46,111 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Template.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java">
+      <file leaf-file-name="KfetController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="95" column="61" lean-forward="false" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrdersManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/OrdersManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiQueryBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlParametersMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="93" column="32" lean-forward="false" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiQuery.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KfetLowStocks.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetLowStocks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="40" column="75" lean-forward="false" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kfet_low_stocks.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/fxml/kfet/kfet_low_stocks.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
-              <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreferencesDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiSettingsDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/ApiSettingsDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="168">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preferences.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml">
+      <file leaf-file-name="Helpers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kfet_summary.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/fxml/kfet/kfet_summary.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/Dialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1155">
-              <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api_settings.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/fxml/dialogs/api_settings.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="65" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DialogsManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            <state relative-caret-position="273">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -215,12 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>%</find>
-      <find>hover</find>
-      <find>selected</find>
-      <find>reset</find>
-      <find>syso</find>
-      <find>FormMap</find>
       <find>prin</find>
       <find>\n\n        reset\(\)\;\n    \}\n\n    public void save \(\)\n    \{</find>
       <find>S</find>
@@ -245,6 +191,12 @@
       <find>bg-tr</find>
       <find>nav</find>
       <find>navbar</find>
+      <find>static</find>
+      <find>At</find>
+      <find>almost</find>
+      <find>fx:id</find>
+      <find>nd</find>
+      <find>restockingDate</find>
     </findStrings>
     <replaceStrings>
       <replace>get</replace>
@@ -265,46 +217,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/CustomersController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/EventsController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MenusController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MoneyAddingsController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/OrdersController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/ProductsController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/PurchasesController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/RestockingsController.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/StaffController.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SubcategoriesController.java" />
         <option value="$PROJECT_DIR$/resources/css/jbootx.css" />
         <option value="$PROJECT_DIR$/resources/configs.properties" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Config.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MenubarController.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/MainJFX.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/settings.fxml" />
         <option value="$PROJECT_DIR$/resources/configs/api.properties" />
         <option value="$PROJECT_DIR$/resources/fxml/dialogs/settings.fxml" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/SettingsDialog.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/ApiSettingsDialog.java" />
         <option value="$PROJECT_DIR$/../../../libs/FormValidator/FormValidator.jar!/fr/polytech/marecal/FieldValueType.class" />
         <option value="$PROJECT_DIR$/../../../libs/FormValidator/FormValidator.jar!/fr/polytech/marecal/validator/FormValidator.class" />
         <option value="$PROJECT_DIR$/../../../libs/FormValidator/FormValidator.jar!/fr/polytech/marecal/FormMap.class" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/configs/ApiConfig.java" />
-        <option value="$PROJECT_DIR$/resources/configs/configs.properties" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/Dialog.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java" />
         <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/ApiSettingsDialog.java" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java" />
-        <option value="$PROJECT_DIR$/resources/fxml/dialogs/api_settings.fxml" />
-        <option value="$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml" />
-        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java" />
         <option value="$PROJECT_DIR$/resources/css/style.css" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetViewController.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/views/ViewController.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/DialogsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/ViewsManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/KfetManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/categories/CategoriesHome.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Order.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/LoadingWindow.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/MainJFX.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java" />
+        <option value="$PROJECT_DIR$/resources/fxml/kfet/kfet_home.fxml" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java" />
+        <option value="$PROJECT_DIR$/resources/fxml/dialogs/api_settings.fxml" />
+        <option value="$PROJECT_DIR$/resources/configs/configs.properties" />
+        <option value="$PROJECT_DIR$/resources/fxml/dialogs/preferences.fxml" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java" />
+        <option value="$PROJECT_DIR$/resources/fxml/kfet/kfet_summary.fxml" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetSummary.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java" />
+        <option value="$PROJECT_DIR$/resources/fxml/kfet/kfet_low_stocks.fxml" />
+        <option value="$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetLowStocks.java" />
       </list>
     </option>
   </component>
@@ -382,7 +345,119 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="configs" />
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marechal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marechal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="managers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marechal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="marechal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,11 +579,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dialogs" />
+              <option name="myItemId" value="marechal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,6 +606,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kfet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dialogs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -561,7 +688,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -861,35 +988,35 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.239899" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32828283" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21338384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2232376" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.181875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21338384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22222222" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.193125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16792929" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -917,7 +1044,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="95" />
+      <option name="time" value="103" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -926,203 +1053,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/RestockingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/StaffController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SubcategoriesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Config.java" />
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/Api.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/application/css/jbootx.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/application/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/fxml/FXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/CallerSensitive.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/collections/MapChangeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/application/fxml/dialogs/settings.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/MainJFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/settings.fxml" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/com/sun/javafx/event/EventUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/jbootx.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3885">
-          <caret line="185" column="76" lean-forward="false" selection-start-line="185" selection-start-column="76" selection-end-line="188" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2709">
-          <caret line="129" column="5" lean-forward="false" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/jre/lib/deploy.jar!/com/sun/deploy/panel/settings.xml_java-control-panel.dtd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-819">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../libs/FormValidator/FormValidator.jar!/fr/polytech/marecal/FieldValueType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="9605" column="0" lean-forward="false" selection-start-line="9605" selection-start-column="0" selection-end-line="9605" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/MenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8526">
-          <caret line="462" column="0" lean-forward="false" selection-start-line="462" selection-start-column="0" selection-end-line="462" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/collections/ListChangeBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10689">
-          <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/collections/ObservableListBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3696">
-          <caret line="205" column="0" lean-forward="false" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10144#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/collections/ModifiableObservableListBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2709">
-          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10256#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/TextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11613#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#10862#10899#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17535">
-          <caret line="902" column="0" lean-forward="false" selection-start-line="902" selection-start-column="0" selection-end-line="902" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#59807#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#12891#12903#0" expanded="false" />
-            <element signature="e#56573#56610#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -1138,10 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="699">
           <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#5920#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1152,30 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="42" column="47" lean-forward="false" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/configs/ApiConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="77" column="24" lean-forward="true" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/application/configs/api.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1183,19 +1085,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/configs/configs.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/configs/api.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1211,71 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35301">
           <caret line="1776" column="13" lean-forward="false" selection-start-line="1776" selection-start-column="13" selection-end-line="1776" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="65" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
-          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/DialogsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/ApiSettingsDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="35" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1283,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,13 +1122,198 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/navbar/NavbarItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/Dialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="92" column="25" lean-forward="false" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/MenusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/DialogsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/managers/ViewsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KfetManager.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/KfetManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/categories/CategoriesHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/MainTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="38" column="73" lean-forward="false" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="126" column="32" lean-forward="false" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/custom/LoadingWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/MainJFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/ScrollPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="203" column="37" lean-forward="true" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="66" column="10" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fxml/kfet/kfet_home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/views/ViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/fxml/dialogs/api_settings.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="33" />
+        <state relative-caret-position="294">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/configs/configs.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1311,25 +1323,165 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="1071">
+          <caret line="51" column="52" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/SettingsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="194">
+          <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/ui/template/Template.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/ApiSettingsDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="42" column="84" lean-forward="false" selection-start-line="42" selection-start-column="84" selection-end-line="42" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/dialogs/PreferencesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetSummary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/configs/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/configs/ApiConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/mvc/models/ModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/managers/OrdersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQueryBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/UrlParametersMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="93" column="32" lean-forward="false" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/api/ApiQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/models/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/controllers/KfetController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="95" column="61" lean-forward="false" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/libs/Helpers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fxml/kfet/kfet_low_stocks.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
-          <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fxml/kfet/kfet_summary.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/polytech/marechal/app/views/kfet/KfetLowStocks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="40" column="75" lean-forward="false" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

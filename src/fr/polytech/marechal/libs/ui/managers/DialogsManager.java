@@ -1,16 +1,15 @@
-package fr.polytech.marechal.libs.ui;
+package fr.polytech.marechal.libs.ui.managers;
 
 import fr.polytech.marechal.libs.ui.custom.Dialog;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author Utilisateur
  * @date 07/07/2017
  */
-public class DialogsManager
+public class DialogsManager extends ViewsManager
 {
     public static Dialog load (@NotNull Dialog dialog)
     {
@@ -26,7 +25,7 @@ public class DialogsManager
         }
         catch (Exception e)
         {
-            root = new VBox();
+            root = new Pane();
 //            dialog.setTitle("Error");
             System.err.println("Failed to the dialog of fxml file '" + path + "'...");
             e.printStackTrace();

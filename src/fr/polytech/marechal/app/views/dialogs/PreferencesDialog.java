@@ -17,6 +17,7 @@ public class PreferencesDialog extends Dialog
     private FormMap form;
 
     @FXML private TextField fieldDept;
+    @FXML private TextField fieldLowStockValue;
     @FXML private Button submit;
     @FXML private Button reset;
 
@@ -27,6 +28,7 @@ public class PreferencesDialog extends Dialog
 
         form = new FormMap();
         form.add("max_dept", FieldValueType.NUMBERS_DOUBLE_UNSIGNED, fieldDept, true);
+        form.add("low_stock_value", FieldValueType.NUMBERS_INT_UNSIGNED, fieldLowStockValue, true);
         form.setSubmitButton(submit);
 
         submit.setOnAction(event -> save());
@@ -37,12 +39,13 @@ public class PreferencesDialog extends Dialog
 
     public void save ()
     {
-        new SettingsController().saveSettings(Integer.valueOf(fieldDept.getText()));
+        new SettingsController().saveSettings(Double.parseDouble(fieldDept.getText()), Integer.parseInt(fieldLowStockValue.getText()));
         this.close();
     }
 
     public void reset ()
     {
         fieldDept.setText(Settings.getCustomerMaxDept() + "");
+        fieldLowStockValue.setText(Settings.getCriticalStockValue() + "");
     }
 }

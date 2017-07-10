@@ -5,7 +5,7 @@ import fr.polytech.marechal.app.views.dialogs.PreferencesDialog;
 import fr.polytech.marechal.configs.ApiConfig;
 import fr.polytech.marechal.configs.Settings;
 import fr.polytech.marechal.libs.mvc.controllers.Controller;
-import fr.polytech.marechal.libs.ui.DialogsManager;
+import fr.polytech.marechal.libs.ui.managers.DialogsManager;
 import fr.polytech.marechal.libs.ui.custom.Dialog;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,7 +40,7 @@ public class SettingsController extends Controller
         return true;
     }
 
-    public boolean saveSettings (int maxDept)
+    public boolean saveSettings (double maxDept, int lowStockValue)
     {
         Settings.setCustomerMaxDept(maxDept);
         return true;

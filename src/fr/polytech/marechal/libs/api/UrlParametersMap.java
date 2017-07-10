@@ -1,7 +1,7 @@
 package fr.polytech.marechal.libs.api;
 
 
-import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 /**
@@ -10,33 +10,32 @@ import java.util.HashMap;
  */
 public class UrlParametersMap extends HashMap<String, Object>
 {
-
     public UrlParametersMap ()
     {
 
     }
 
-//    public UrlParametersMap (String params) throws ParseException
-//    {
-//        // ?field=value&field2=value&... || field=value&field2=value || field=value
-//        if (!params.matches("\\??([a-zA-Z0-9]+=[a-zA-Z0-9]+&)*([a-zA-Z0-9]+=[a-zA-Z0-9]+)"))
-//        {
-//            throw new ParseException("The parameters' string format is invalid", 0);
-//        }
-//
-//        if (params.charAt(0) == '?')
-//        {
-//            params = params.substring(1);
-//        }
-//
-//        String array[] = params.split("&");
-//
-//        for (String param : array)
-//        {
-//            String split[] = param.split("=");
-//            put(split[0], split[1]);
-//        }
-//    }
+    //    public UrlParametersMap (String params) throws ParseException
+    //    {
+    //        // ?field=value&field2=value&... || field=value&field2=value || field=value
+    //        if (!params.matches("\\??([a-zA-Z0-9]+=[a-zA-Z0-9]+&)*([a-zA-Z0-9]+=[a-zA-Z0-9]+)"))
+    //        {
+    //            throw new ParseException("The parameters' string format is invalid", 0);
+    //        }
+    //
+    //        if (params.charAt(0) == '?')
+    //        {
+    //            params = params.substring(1);
+    //        }
+    //
+    //        String array[] = params.split("&");
+    //
+    //        for (String param : array)
+    //        {
+    //            String split[] = param.split("=");
+    //            put(split[0], split[1]);
+    //        }
+    //    }
 
     public UrlParametersMap setOrderBy (String field)
     {
@@ -77,63 +76,85 @@ public class UrlParametersMap extends HashMap<String, Object>
         return this;
     }
 
-    public UrlParametersMap setRelations (String relations) throws ParseException
+    public UrlParametersMap setFrom (LocalDate from)
     {
-        if (relations.isEmpty())
-        {
-            return this;
-        }
-
-        // rel1,rel2,...,reln
-        if (!relations.matches("(\\*|([.a-zA-Z0-9]+,)*([.a-zA-Z0-9]+))"))
-        {
-            throw new ParseException("The parameter value of 'with' format is invalid", 0);
-        }
-
-
-        set("with", relations);
-
+        set("from", from);
         return this;
     }
 
+    public UrlParametersMap setTo (LocalDate to)
+    {
+        set("to", to);
+        return this;
+    }
+
+    public UrlParametersMap setDate (LocalDate date)
+    {
+        setFrom(date);
+        setTo(date.plusDays(1));
+        return this;
+    }
+
+    public UrlParametersMap only (String... fields)
+    {
+        String fieldsStr = "";
+        for (String f : fields)
+        {
+            fieldsStr += "," + f;
+        }
+
+        if (!fieldsStr.isEmpty())
+        {
+            fieldsStr = fieldsStr.substring(1);
+        }
+
+        set("fields", fieldsStr);
+        return this;
+    }
+
+    public UrlParametersMap where (String field, String operator, Object value)
+    {
+        String where = "";
+
+        if (containsKey("where"))
+        {
+            where = get("where").toString() + ";";
+        }
+
+        where += field + "," + operator + "," + value.toString();
+
+        set("where", where);
+        return this;
+    }
+
+    public UrlParametersMap with (String relation)
+    {
+        String with = "";
+
+        if (containsKey("with"))
+        {
+            with = get("with").toString() + ",";
+        }
+
+        with += relation;
+
+        set("with", with);
+        return this;
+    }
+
+
     public UrlParametersMap withAllRelations ()
     {
-        try
-        {
-            return setRelations("*");
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
-            return this;
-        }
+        return with("*");
     }
 
     public UrlParametersMap setRelations (String... relations)
     {
-        String str = "";
         for (String r : relations)
         {
-            if (!r.isEmpty())
-            {
-                str += r + ",";
-            }
+            with(r);
         }
-
-        if (!str.isEmpty())
-        {
-            str = str.substring(0, str.length() - 1);
-        }
-
-        try
-        {
-            return setRelations(str);
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
-            return this;
-        }
+        return this;
     }
 
     public UrlParametersMap set (String param, Object value)

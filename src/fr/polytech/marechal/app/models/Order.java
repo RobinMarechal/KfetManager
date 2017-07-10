@@ -21,6 +21,7 @@ public class Order extends Model<Order>
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private int menuId;
+    private double discount;
 
     private RelationsMap<Product, OrderProduct> products = new RelationsMap<>();
     private ArrayList<OrderProduct> orderProducts = new ArrayList<>();
@@ -123,6 +124,16 @@ public class Order extends Model<Order>
         this.menu = menu;
     }
 
+    public double getDiscount ()
+    {
+        return discount;
+    }
+
+    public void setDiscount (double discount)
+    {
+        this.discount = discount;
+    }
+
     public RelationsMap<Product, OrderProduct> getProducts ()
     {
         return products;
@@ -174,6 +185,7 @@ public class Order extends Model<Order>
         orderProducts = obj.orderProducts;
         menu = obj.menu;
         customer = obj.customer;
+        discount = obj.discount;
     }
 
     @Override

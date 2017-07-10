@@ -51,22 +51,18 @@ public class NavbarItem extends Button
     {
         setOnAction(event ->
         {
-            if (Template.getInstance()
-                        .getSelectedNavbarItem() != this)
-            {
-                Template.getInstance()
-                        .setSelectedNavbarItem(this);
+            Template.getInstance()
+                    .setSelectedNavbarItem(this);
 
-                if (controller != null)
-                {
-                    controller.home();
-                    System.out.println("Controller '" + controller.getClass()
-                                                                  .getSimpleName() + "'");
-                }
-                else
-                {
-                    System.out.println("No controller defined...");
-                }
+            if (controller != null)
+            {
+                controller.home();
+                System.out.println("Controller '" + controller.getClass()
+                                                              .getSimpleName() + "'");
+            }
+            else
+            {
+                System.out.println("No controller defined...");
             }
         });
     }

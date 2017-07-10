@@ -1,10 +1,6 @@
 package fr.polytech.marechal.libs;
 
-import fr.polytech.marechal.libs.ui.custom.Dialog;
 import javafx.css.Styleable;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -13,6 +9,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.Normalizer;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author Robin
@@ -127,5 +124,20 @@ public class Helpers
         path = resource.toString();
         path = new File(new URI(path)).toString();
         return path;
+    }
+
+    public static DateTimeFormatter getDateFormatter ()
+    {
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    }
+
+    public static DateTimeFormatter getTimeFormatter ()
+    {
+        return DateTimeFormatter.ofPattern("HH:mm");
+    }
+
+    public static DateTimeFormatter getDatetimeFormatter ()
+    {
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     }
 }

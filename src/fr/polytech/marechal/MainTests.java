@@ -4,7 +4,10 @@ import fr.polytech.marechal.app.models.Category;
 import fr.polytech.marechal.app.models.Product;
 import fr.polytech.marechal.app.models.managers.CategoriesManager;
 import fr.polytech.marechal.app.models.managers.ProductsManager;
-import fr.polytech.marechal.libs.api.*;
+import fr.polytech.marechal.libs.api.Api;
+import fr.polytech.marechal.libs.api.ApiResponse;
+import fr.polytech.marechal.libs.api.OrderBy;
+import fr.polytech.marechal.libs.api.UrlParametersMap;
 import fr.polytech.marechal.libs.database.query.builders.SelectQueryBuilder;
 import fr.polytech.marechal.libs.database.query.builders.enums.Functions;
 import org.json.simple.JSONArray;
@@ -14,6 +17,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,6 +38,10 @@ public class MainTests
         
 //        System.out.println(new CategoriesManager().allWithRelations());
 //        testSave();
+
+        String dts = "2017-05-23 05:30";
+        LocalDateTime dt = LocalDateTime.parse(dts, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        System.out.println(dt);
     }
 
     private static void testSave ()
@@ -107,39 +115,6 @@ public class MainTests
         System.out.println(products.get(0)
                                    .getSubcategory()
                                    .getCategory());
-    }
-
-    private static void testQueryBuilder ()
-    {
-        try
-        {
-            ApiQuery query = ApiQueryBuilder.forModelManager(new CategoriesManager())
-                                            .limit(5, 10)
-                                            .orderBy("id")
-                                            .with("subcategories", "menus")
-                                            .getQuery();
-
-            //            System.out.println(query);
-            //
-            query.execute()
-                 .getJson();
-            //
-            //            System.out.println("-----------2-----------");
-
-            UrlParametersMap paramMap = new UrlParametersMap().setRelations("menus");
-
-            Category category = new CategoriesManager().find(3, paramMap);
-
-            System.out.println(category);
-
-            category.getMenus()
-                    .getPivotList()
-                    .forEach(categoryMenu -> System.out.println(categoryMenu));
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
     }
 
     private static void apiTests ()

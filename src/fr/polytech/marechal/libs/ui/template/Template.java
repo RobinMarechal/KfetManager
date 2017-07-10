@@ -1,12 +1,13 @@
 package fr.polytech.marechal.libs.ui.template;
 
 import fr.polytech.marechal.app.controllers.*;
-import fr.polytech.marechal.app.views.kfet.KfetHome;
-import fr.polytech.marechal.libs.mvc.views.ViewController;
 import fr.polytech.marechal.libs.ui.template.navbar.NavbarItem;
 import fr.polytech.marechal.libs.ui.template.navbar.NavbarItemList;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -36,13 +37,19 @@ public class Template extends Scene
     private NavbarItemList navbarItems;
     private NavbarItem selectedNavbarItem;
 
+    public final static int CONTENT_WIDTH = 1200;
+    public final static int NAVBAR_WIDTH = 230;
+    public final static int HEIGHT = 700;
+
     private Template ()
     {
         super(new Pane());
 
         layout = new BorderPane();
-        layout.setPrefWidth(1400);
-        layout.setPrefHeight(700);
+        layout.setPrefWidth(CONTENT_WIDTH + NAVBAR_WIDTH);
+        layout.setPrefHeight(HEIGHT + 18.33);
+        layout.getStyleClass()
+              .add("bg-almost-white");
         this.setRoot(layout);
 
         displayNavbar();
@@ -65,7 +72,7 @@ public class Template extends Scene
     private void displayNavbar ()
     {
         navbar = new VBox();
-        navbar.setPrefWidth(230);
+        navbar.setPrefWidth(NAVBAR_WIDTH);
         navbar.getStyleClass()
               .add("navbar");
 
@@ -87,7 +94,8 @@ public class Template extends Scene
         navbar.getChildren()
               .addAll(navbarItems);
 
-        navbar.getStyleClass().add("bg-almost-white");
+        navbar.getStyleClass()
+              .add("bg-almost-white");
 
         layout.setLeft(navbar);
     }
@@ -97,36 +105,40 @@ public class Template extends Scene
         contentPane = new ScrollPane();
         layout.setCenter(contentPane);
 
-        setView(new KfetHome());
-        setSelectedNavbarItem(navbarItems.get(0));
+        contentPane.setFitToWidth(true);
+
+        Pane p = new Pane();
+        p.getStyleClass()
+         .add("bg-almost-white");
+        setView(p);
     }
 
     private void displayMenubar ()
     {
         SettingsController menubarController = new SettingsController();
 
-        MenuItem saveOrder = new MenuItem("Une commande");
+        MenuItem addOrder = new MenuItem("Une commande");
 
         MenuItem prefs = new MenuItem("Préférences");
         prefs.setOnAction(event -> menubarController.openSettingsDialog());
         MenuItem paramAPI = new MenuItem("API");
         paramAPI.setOnAction(event -> menubarController.openApiSettingsDialog());
 
-        Menu menuSave   = new Menu("Enregistrer...");
+        Menu menuAdd    = new Menu("Ajouter...");
         Menu menuParams = new Menu("Paramètres...");
 
-        menuSave.getItems()
-                .add(saveOrder);
+        menuAdd.getItems()
+               .add(addOrder);
 
         menuParams.getItems()
                   .addAll(prefs, paramAPI);
 
-        menubar = new MenuBar(menuSave, menuParams);
+        menubar = new MenuBar(menuAdd, menuParams);
 
         layout.setTop(menubar);
     }
 
-    public void setView (ViewController view)
+    public void setView (Pane view)
     {
         contentPane.setContent(view);
     }
@@ -147,5 +159,10 @@ public class Template extends Scene
     public NavbarItem getSelectedNavbarItem ()
     {
         return selectedNavbarItem;
+    }
+
+    public void selectFirstNavbarItem ()
+    {
+        setSelectedNavbarItem(navbarItems.get(0));
     }
 }

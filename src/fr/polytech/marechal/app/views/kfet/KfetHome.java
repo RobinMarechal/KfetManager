@@ -1,34 +1,39 @@
 package fr.polytech.marechal.app.views.kfet;
 
 import fr.polytech.marechal.libs.mvc.views.ViewController;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.layout.Pane;
 
 /**
  * @author Utilisateur
  * @date 06/07/2017
  */
-public class KfetHome extends ViewController
+public class KfetHome extends KfetViewController
 {
+    private final double balance;
+    private final ViewController summary;
+    private final ViewController lowStocks;
 
-    public KfetHome()
+    @FXML private Label labBalance;
+    @FXML private Pane paneSummary;
+    @FXML private Pane paneLowStocks;
+
+    public KfetHome (double balance, ViewController summary, ViewController lowStocks)
     {
-        getChildren().add(new Label("Kfet home"));
+        super();
+        this.balance = balance;
+        this.summary = summary;
+        this.lowStocks = lowStocks;
+
+
     }
 
-    /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  <tt>null</tt> if the location is not known.
-     * @param resources The resources used to localize the root object, or <tt>null</tt> if
-     */
     @Override
-    public void initialize (URL location, ResourceBundle resources)
+    public void initialize ()
     {
-
+        labBalance.setText(balance + "");
+        paneSummary.getChildren().add(summary);
+        paneLowStocks.getChildren().add(lowStocks);
     }
 }

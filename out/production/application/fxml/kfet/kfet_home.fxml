@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="bg-almost-white" prefHeight="700" prefWidth="1200"
+            xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox alignment="CENTER" prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="36.0" prefWidth="172.0" styleClass="h2" text="Gestion de la Kfet"/>
+                <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
+                    <children>
+                        <Label text="Solde :" textFill="#6f6f6f">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Italic" size="17.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="labBalance" alignment="CENTER" text="530.23€" textFill="#6f6f6f">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Italic" size="17.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="-10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <stylesheets>
+        <URL value="@../../css/jbootx.css"/>
+        <URL value="@../../css/style.css"/>
+    </stylesheets>
+    <center>
+        <BorderPane BorderPane.alignment="CENTER">
+            <left>
+                <Pane  fx:id="paneSummary" BorderPane.alignment="CENTER"/>
+            </left>
+            <right>
+                <Pane fx:id="paneLowStocks" BorderPane.alignment="CENTER"/>
+            </right>
+        </BorderPane>
+    </center>
+</BorderPane>

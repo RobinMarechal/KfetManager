@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="314.0" prefWidth="700.0" styleClass="bg-almost-white" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" styleClass="h2" text="Articles en rupture de stocks" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin> 
+      </Label>
+      <TableView fx:id="table" editable="true" prefHeight="150.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Article" />
+          <TableColumn fx:id="colStock" prefWidth="75.0" text="Stock restant" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <VBox.margin>
+            <Insets bottom="15.0" top="15.0" />
+         </VBox.margin>
+      </TableView>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Dernières courses : le " textFill="#515151">
+               <styleClass>
+                  <String fx:value="p" />
+                  <String fx:value="text-italic" />
+               </styleClass>
+            </Label>
+            <Label fx:id="restockingDate" layoutX="10.0" layoutY="10.0" text="23/09/2017" textFill="#515151">
+               <styleClass>
+                  <String fx:value="p" />
+                  <String fx:value="text-italic" />
+               </styleClass>
+            </Label>
+            <Label layoutX="120.0" layoutY="10.0" text=" (" textFill="#515151">
+               <styleClass>
+                  <String fx:value="p" />
+                  <String fx:value="text-italic" />
+               </styleClass>
+            </Label>
+            <Label fx:id="restockingCost" layoutX="182.0" layoutY="10.0" text="83.30" textFill="#515151">
+               <styleClass>
+                  <String fx:value="p" />
+                  <String fx:value="text-italic" />
+               </styleClass>
+            </Label>
+            <Label layoutX="217.0" layoutY="10.0" text="€)" textFill="#515151">
+               <styleClass>
+                  <String fx:value="p" />
+                  <String fx:value="text-italic" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../css/style.css" />
+      <URL value="@../../css/jbootx.css" />
+   </stylesheets>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

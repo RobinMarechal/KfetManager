@@ -14,6 +14,8 @@ public class ApiQuery
     private final String completeUrl;
     private final Http httpMethod;
     private HashMap<String, Object> data;
+    private UrlParametersMap urlParams;
+    private String suffix;
 
     public ApiQuery (String completeUrl, Http method, HashMap<String, Object> data)
     {
@@ -24,12 +26,35 @@ public class ApiQuery
 
     public ApiResponse execute () throws IOException, ParseException
     {
-        return Api.sendRequest(completeUrl, data, httpMethod.toString());
+        String url = completeUrl;
+        if (suffix != null && !suffix.isEmpty())
+        {
+            url += "?" + suffix;
+        }
+        
+        return Api.sendRequest(url, data, httpMethod.toString());
     }
 
     @Override
     public String toString ()
     {
         return "[" + httpMethod + "] " + completeUrl;
+    }
+
+    public ApiQuery build ()
+    {
+        suffix = "";
+        if (urlParams != null)
+        {
+            suffix = urlParams.toString();
+        }
+
+        return this;
+    }
+
+    public void setUrlParams (UrlParametersMap urlParams)
+    {
+        this.urlParams = urlParams;
+        this.suffix = urlParams.toString();
     }
 }

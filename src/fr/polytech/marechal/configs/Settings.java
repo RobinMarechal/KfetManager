@@ -13,16 +13,17 @@ import java.util.Properties;
  */
 public class Settings
 {
-    private static int customerMaxDept;
+    private static int criticalStockValue;
+    private static double customerMaxDept;
 
     private static String filePath = "/configs/configs.properties";
 
-    public static int getCustomerMaxDept ()
+    public static double getCustomerMaxDept ()
     {
         return customerMaxDept;
     }
 
-    public static void setCustomerMaxDept (int customerMaxDept)
+    public static void setCustomerMaxDept (double customerMaxDept)
     {
         Settings.customerMaxDept = customerMaxDept;
     }
@@ -37,7 +38,8 @@ public class Settings
             FileInputStream in = new FileInputStream(path);
 
             p.load(in);
-            customerMaxDept = Integer.parseInt(p.getProperty("CUSTOMER_MAX_DEPT"));
+            customerMaxDept = Double.parseDouble(p.getProperty("CUSTOMER_MAX_DEPT"));
+            criticalStockValue = Integer.parseInt(p.getProperty("CRITICAL_STOCK_VALUE"));
 
             in.close();
             System.out.println("Settings loaded");
@@ -59,6 +61,7 @@ public class Settings
             FileOutputStream out = new FileOutputStream(path);
 
             p.setProperty("CUSTOMER_MAX_DEPT", String.valueOf(customerMaxDept));
+            p.setProperty("CRITICAL_STOCK_VALUE", String.valueOf(criticalStockValue));
 
             p.store(out, null);
 
@@ -71,5 +74,10 @@ public class Settings
             System.err.println("CONFIG ERROR >>> Settings properties file not found...");
             e.printStackTrace();
         }
+    }
+
+    public static int getCriticalStockValue ()
+    {
+        return criticalStockValue;
     }
 }
